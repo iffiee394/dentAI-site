@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DentAI — AI Receptionist for Dental Practices</title>
+<meta name="description" content="DentAI answers every patient call, books appointments, and follows up automatically — 24/7. Built for US dental practices. $1,500/mo. Month-to-month.">
+<meta property="og:title" content="DentAI — Never Miss a Patient Call Again">
+<meta property="og:description" content="AI receptionist that answers calls, books appointments, and sends follow-ups — even when your office is closed.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEFED;
+  --text: #1A1D23;
+  --text-secondary: #6B7080;
+  --accent: #0B6E4F;
+  --accent-light: #E6F4EE;
+  --border: #E3E3E0;
+  --black: #1A1D23;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --max-w: 1120px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* ─── NAV ─── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(247,247,245,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-weight: 700; font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: none; gap: 32px;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-links a { transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-cta {
+  background: var(--black); color: var(--white);
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ─── HERO ─── */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.8rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 24px;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+.hero-ctas {
+  display: flex; gap: 12px;
+  justify-content: center; flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--black); color: var(--white);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 600;
+  border: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 500;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-outline:hover { border-color: var(--text); }
+
+/* ─── DASHBOARD MOCKUP ─── */
+.showcase { padding: 0 24px 80px; }
+.showcase-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.dashboard {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 40px rgba(0,0,0,0.04);
+}
+.dash-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--text-secondary);
+}
+.dash-topbar .logo-sm { color: var(--text); font-weight: 700; }
+.dash-topbar .logo-sm span { color: var(--accent); }
+.dash-status {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.75rem;
+}
+.dash-status .live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22C55E;
+  animation: pulse 2s ease-in-out infinite;
+}
+.dash-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 380px;
+}
+@media (max-width: 640px) {
+  .dash-body { grid-template-columns: 1fr; min-height: auto; }
+  .dash-sidebar { display: none; }
+}
+.dash-sidebar {
+  border-right: 1px solid var(--border);
+  padding: 16px 0;
+}
+.dash-nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px;
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  cursor: default;
+}
+.dash-nav-item.active {
+  color: var(--text);
+  background: var(--surface-alt);
+  font-weight: 600;
+  border-right: 2px solid var(--accent);
+}
+.dash-nav-item .nav-icon {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+}
+.dash-nav-item.active .nav-icon {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.live-badge {
+  font-size: 0.65rem; font-weight: 700;
+  color: #22C55E;
+  margin-left: auto;
+}
+
+.dash-content {
+  padding: 24px;
+  position: relative;
+}
+.dash-panel {
+  display: none;
+  animation: fadePanel 0.3s ease;
+}
+.dash-panel.active { display: block; }
+
+@keyframes fadePanel {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 20px;
+}
+.panel-title {
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.panel-subtitle {
+  font-size: 0.78rem; color: var(--text-secondary);
+}
+.panel-badge {
+  font-size: 0.72rem; font-weight: 600;
+  padding: 4px 10px; border-radius: 6px;
+}
+.badge-green { background: #DCFCE7; color: #166534; }
+.badge-blue { background: #DBEAFE; color: #1E40AF; }
+
+/* Call log table */
+.call-table { width: 100%; border-collapse: collapse; }
+.call-table th {
+  text-align: left; font-size: 0.72rem; font-weight: 600;
+  color: var(--text-secondary); text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 12px 10px; border-bottom: 1px solid var(--border);
+}
+.call-table td {
+  padding: 12px; font-size: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+.call-table tr:last-child td { border-bottom: none; }
+.caller-name { font-weight: 600; }
+.call-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.78rem; font-weight: 500;
+}
+.status-answered { color: #166534; }
+.status-booked { color: #1E40AF; }
+.call-now {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.72rem; font-weight: 700;
+  color: #22C55E;
+}
+.call-now .now-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #22C55E;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Appointment panel */
+.appt-cards { display: flex; flex-direction: column; gap: 10px; }
+.appt-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.appt-time {
+  font-size: 0.82rem; font-weight: 700;
+  color: var(--accent);
+  min-width: 52px;
+}
+.appt-detail { flex: 1; }
+.appt-detail .name { font-size: 0.88rem; font-weight: 600; }
+.appt-detail .type { font-size: 0.78rem; color: var(--text-secondary); }
+.appt-source {
+  font-size: 0.68rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 4px;
+  background: var(--accent-light); color: var(--accent);
+  white-space: nowrap;
+}
+
+/* Review panel */
+.review-items { display: flex; flex-direction: column; gap: 12px; }
+.review-item {
+  display: flex; gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.review-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+}
+.review-icon.sms { background: #DBEAFE; }
+.review-icon.email { background: #FEF3C7; }
+.review-icon.posted { background: #DCFCE7; }
+.review-detail { flex: 1; }
+.review-detail .action { font-size: 0.85rem; font-weight: 600; }
+.review-detail .meta { font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px; }
+.stars { color: #F59E0B; letter-spacing: 1px; font-size: 0.8rem; }
+
+/* ─── TABS ─── */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+@media (max-width: 640px) { .tabs { grid-template-columns: 1fr; } }
+.tab {
+  position: relative;
+  background: var(--surface-alt);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+.tab.active {
+  background: var(--white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+}
+.tab-progress {
+  position: absolute; top: 0; left: 0;
+  height: 2.5px; background: var(--accent);
+  width: 0; border-radius: 0 2px 2px 0;
+  transition: width 0.1s linear;
+}
+.tab:not(.active) .tab-progress { width: 0 !important; background: transparent; }
+.tab h3 {
+  font-size: 0.92rem; font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.tab p {
+  font-size: 0.82rem; color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ─── STATS STRIP ─── */
+.stats {
+  padding: 64px 24px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stats-grid {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+@media (max-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+.stat-item {}
+.stat-value {
+  font-size: 2rem; font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.stat-label {
+  font-size: 0.8rem; color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ─── FEATURES 2×2 ─── */
+.features { padding: 80px 24px; }
+.features-inner { max-width: var(--max-w); margin: 0 auto; }
+.features-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.features-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.features-header p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: border-color 0.2s;
+}
+.feature-card:hover { border-color: var(--accent); }
+.feature-visual {
+  height: 140px;
+  background: var(--bg);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.feature-card h3 {
+  font-size: 1.05rem; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.feature-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Mini visualizations inside feature cards */
+.mini-calls {
+  display: flex; flex-direction: column; gap: 6px;
+  width: 85%; max-width: 280px;
+}
+.mini-call-row {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--white);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  border: 1px solid var(--border);
+}
+.mini-call-row .mc-dot {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+}
+.mini-call-row .mc-name { font-weight: 600; flex: 1; }
+.mini-call-row .mc-time { color: var(--text-secondary); font-size: 0.68rem; }
+
+.mini-chart {
+  display: flex; align-items: flex-end; gap: 6px;
+  height: 100px;
+  padding: 0 20px;
+}
+.mini-bar {
+  flex: 1; background: var(--accent);
+  border-radius: 4px 4px 0 0;
+  opacity: 0.7;
+  position: relative;
+}
+.mini-bar:nth-child(even) { opacity: 0.4; background: var(--border); }
+.mini-bar-label {
+  position: absolute; bottom: -18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem; color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.mini-convo {
+  display: flex; flex-direction: column; gap: 6px;
+  width: 80%; max-width: 260px;
+}
+.mini-bubble {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  max-width: 80%;
+  line-height: 1.4;
+}
+.mini-bubble.patient {
+  background: var(--surface-alt);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.mini-bubble.ai {
+  background: var(--accent);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.mini-reviews {
+  display: flex; flex-direction: column; gap: 5px;
+  width: 80%; max-width: 260px;
+}
+.mini-review-row {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--white);
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  border: 1px solid var(--border);
+}
+.mini-review-row .mr-stars { color: #F59E0B; font-size: 0.65rem; }
+.mini-review-row .mr-name { font-weight: 600; flex: 1; }
+.mini-review-row .mr-time { color: var(--text-secondary); font-size: 0.65rem; }
+
+/* ─── HOW IT WORKS ─── */
+.how-it-works { padding: 80px 24px; background: var(--white); }
+.how-inner { max-width: var(--max-w); margin: 0 auto; }
+.how-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.how-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.how-header p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 640px) { .how-steps { grid-template-columns: 1fr; } }
+.how-step {
+  text-align: center;
+  padding: 24px;
+}
+.step-number {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.88rem; font-weight: 700;
+  margin: 0 auto 16px;
+  color: var(--accent);
+  border: 1px solid var(--border);
+}
+.how-step h3 {
+  font-size: 1.05rem; font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.how-step p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── PRICING ─── */
+.pricing { padding: 80px 24px; }
+.pricing-inner { max-width: var(--max-w); margin: 0 auto; }
+.pricing-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.pricing-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.pricing-header p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) { .pricing-cards { grid-template-columns: 1fr; } }
+.pricing-card {
+  border-radius: 16px;
+  padding: 36px;
+}
+.pricing-card.light {
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+.pricing-card.dark {
+  background: var(--black);
+  color: var(--white);
+}
+.pricing-label {
+  font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.pricing-card.light .pricing-label { color: var(--text-secondary); }
+.pricing-card.dark .pricing-label { color: rgba(255,255,255,0.6); }
+.pricing-amount {
+  font-size: 2.8rem; font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.pricing-period {
+  font-size: 1rem; font-weight: 400;
+}
+.pricing-card.light .pricing-period { color: var(--text-secondary); }
+.pricing-card.dark .pricing-period { color: rgba(255,255,255,0.6); }
+.pricing-note {
+  font-size: 0.88rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.pricing-card.light .pricing-note { color: var(--text-secondary); }
+.pricing-card.dark .pricing-note { color: rgba(255,255,255,0.5); }
+.pricing-list {
+  list-style: none; padding: 0; margin: 0 0 24px;
+}
+.pricing-list li {
+  font-size: 0.92rem;
+  padding: 0.45rem 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.pricing-list li::before {
+  content: '✓'; font-weight: 700; font-size: 0.82rem;
+}
+.pricing-card.light .pricing-list li::before { color: var(--accent); }
+.pricing-card.dark .pricing-list li::before { color: #22C55E; }
+.pricing-card.dark .pricing-list li { color: rgba(255,255,255,0.85); }
+.pricing-btn-light {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--black);
+  color: var(--white);
+  padding: 14px; border-radius: 8px;
+  font-size: 0.92rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.pricing-btn-light:hover { opacity: 0.85; }
+.pricing-btn-dark {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--white);
+  color: var(--black);
+  padding: 14px; border-radius: 8px;
+  font-size: 0.92rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.pricing-btn-dark:hover { opacity: 0.9; }
+
+/* ─── FAQ ─── */
+.faq { padding: 80px 24px; background: var(--white); }
+.faq-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 768px) { .faq-inner { grid-template-columns: 1fr; gap: 32px; } }
+.faq-left h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.faq-left p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.faq-list { display: flex; flex-direction: column; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-question {
+  width: 100%;
+  background: none; border: none;
+  padding: 20px 0;
+  font-family: inherit;
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px;
+}
+.faq-question:hover { color: var(--accent); }
+.faq-chevron {
+  width: 20px; height: 20px; flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.faq-item.open .faq-answer { max-height: 200px; }
+.faq-answer p {
+  padding: 0 0 20px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ─── FINAL CTA ─── */
+.final-cta {
+  padding: 80px 24px;
+  text-align: center;
+}
+.final-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.final-cta h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.final-cta p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+.final-cta .btn-primary { font-size: 1rem; padding: 16px 32px; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+.footer-brand .footer-logo {
+  font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.footer-col h4 {
+  font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text);
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 0 auto;
+  padding-top: 24px;
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="book.html">Book a Demo ↗</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> AI-powered dental receptionist</div>
+  <h1>Never miss a <em>patient call</em> again</h1>
+  <p class="hero-sub">DentAI answers every call, books appointments, and follows up with patients — 24/7, even when your office is closed. Built for US dental practices.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="book.html">Book a Demo ↗</a>
+    <a class="btn-outline" href="#features">See How It Works</a>
+  </div>
+</section>
+
+<!-- DASHBOARD SHOWCASE + TABS -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <div class="dashboard reveal">
+      <div class="dash-topbar">
+        <span class="logo-sm">Dent<span>AI</span></span>
+        <span class="dash-status"><span class="live-dot"></span> AI Receptionist Active</span>
+      </div>
+      <div class="dash-body">
+        <aside class="dash-sidebar">
+          <div class="dash-nav-item active" data-tab="0">
+            <span class="nav-icon">📞</span> Calls
+            <span class="live-badge">Live</span>
+          </div>
+          <div class="dash-nav-item" data-tab="1">
+            <span class="nav-icon">📅</span> Appointments
+          </div>
+          <div class="dash-nav-item" data-tab="2">
+            <span class="nav-icon">⭐</span> Reviews
+          </div>
+          <div class="dash-nav-item">
+            <span class="nav-icon">📊</span> Analytics
+          </div>
+          <div class="dash-nav-item">
+            <span class="nav-icon">⚙️</span> Settings
+          </div>
+        </aside>
+
+        <div class="dash-content">
+          <!-- Panel 0: Calls -->
+          <div class="dash-panel active" data-panel="0">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Today's Calls</div>
+                <div class="panel-subtitle">7 calls answered · 0 missed</div>
+              </div>
+              <span class="panel-badge badge-green">100% answered</span>
+            </div>
+            <table class="call-table">
+              <thead>
+                <tr><th>Patient</th><th>Time</th><th>Duration</th><th>Result</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="caller-name">Sarah Mitchell</span></td>
+                  <td><span class="call-now"><span class="now-dot"></span> Now</span></td>
+                  <td>1:34</td>
+                  <td><span class="call-status status-booked">Appt booked</span></td>
+                </tr>
+                <tr>
+                  <td><span class="caller-name">James R.</span></td>
+                  <td>8:47 PM</td>
+                  <td>2:12</td>
+                  <td><span class="call-status status-booked">Appt booked</span></td>
+                </tr>
+                <tr>
+                  <td><span class="caller-name">Maria Lopez</span></td>
+                  <td>6:15 PM</td>
+                  <td>0:58</td>
+                  <td><span class="call-status status-answered">FAQ answered</span></td>
+                </tr>
+                <tr>
+                  <td><span class="caller-name">David K.</span></td>
+                  <td>12:31 PM</td>
+                  <td>1:45</td>
+                  <td><span class="call-status status-booked">Appt booked</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Panel 1: Appointments -->
+          <div class="dash-panel" data-panel="1">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Booked This Week</div>
+                <div class="panel-subtitle">12 appointments via AI receptionist</div>
+              </div>
+              <span class="panel-badge badge-blue">+4 from after-hours</span>
+            </div>
+            <div class="appt-cards">
+              <div class="appt-card">
+                <div class="appt-time">9:00a</div>
+                <div class="appt-detail">
+                  <div class="name">Sarah Mitchell</div>
+                  <div class="type">General cleaning</div>
+                </div>
+                <span class="appt-source">AI booked</span>
+              </div>
+              <div class="appt-card">
+                <div class="appt-time">10:30a</div>
+                <div class="appt-detail">
+                  <div class="name">James Rodriguez</div>
+                  <div class="type">Emergency — chipped tooth</div>
+                </div>
+                <span class="appt-source">After-hours</span>
+              </div>
+              <div class="appt-card">
+                <div class="appt-time">1:00p</div>
+                <div class="appt-detail">
+                  <div class="name">Karen Wu</div>
+                  <div class="type">Implant consultation</div>
+                </div>
+                <span class="appt-source">AI booked</span>
+              </div>
+              <div class="appt-card">
+                <div class="appt-time">3:30p</div>
+                <div class="appt-detail">
+                  <div class="name">David Kim</div>
+                  <div class="type">Whitening follow-up</div>
+                </div>
+                <span class="appt-source">Reactivation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Reviews -->
+          <div class="dash-panel" data-panel="2">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">Review Automation</div>
+                <div class="panel-subtitle">14 requests sent this week · 6 new reviews</div>
+              </div>
+              <span class="panel-badge badge-green">4.9 avg rating</span>
+            </div>
+            <div class="review-items">
+              <div class="review-item">
+                <div class="review-icon posted">✓</div>
+                <div class="review-detail">
+                  <div class="action">Maria Lopez left a review <span class="stars">★★★★★</span></div>
+                  <div class="meta">Google · 2 hours ago · "Best dental experience I've had!"</div>
+                </div>
+              </div>
+              <div class="review-item">
+                <div class="review-icon sms">💬</div>
+                <div class="review-detail">
+                  <div class="action">SMS sent to James Rodriguez</div>
+                  <div class="meta">Review request · Sent automatically after cleaning appointment</div>
+                </div>
+              </div>
+              <div class="review-item">
+                <div class="review-icon email">✉</div>
+                <div class="review-detail">
+                  <div class="action">Follow-up email to Karen Wu</div>
+                  <div class="meta">Reminder · No response to SMS after 24 hours</div>
+                </div>
+              </div>
+              <div class="review-item">
+                <div class="review-icon posted">✓</div>
+                <div class="review-detail">
+                  <div class="action">David Kim left a review <span class="stars">★★★★★</span></div>
+                  <div class="meta">Google · Yesterday · "Finally a dentist who texts me reminders"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" data-tab="0">
+        <div class="tab-progress"></div>
+        <h3>Answers every call</h3>
+        <p>Your AI receptionist picks up in under a second — evenings, weekends, lunch. No patient goes to voicemail.</p>
+      </div>
+      <div class="tab" data-tab="1">
+        <div class="tab-progress"></div>
+        <h3>Books appointments</h3>
+        <p>Checks real availability, books directly into your calendar, and sends the patient a confirmation.</p>
+      </div>
+      <div class="tab" data-tab="2">
+        <div class="tab-progress"></div>
+        <h3>Grows your reviews</h3>
+        <p>After every appointment, automated SMS and email sequences turn happy patients into 5-star Google reviews.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-value">30–40%</div>
+      <div class="stat-label">of patient calls go unanswered</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">$7,000+</div>
+      <div class="stat-label">average patient lifetime value</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">&lt;1s</div>
+      <div class="stat-label">AI answer time, every call</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">coverage, no extra staff</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES 2×2 -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="features-header reveal">
+      <h2>Everything your front desk can't do at 9pm</h2>
+      <p>DentAI handles the calls, bookings, and follow-ups that fall through the cracks when your team goes home.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-visual">
+          <div class="mini-calls">
+            <div class="mini-call-row">
+              <span class="mc-dot" style="background:#22C55E"></span>
+              <span class="mc-name">Sarah M.</span>
+              <span class="mc-time">Answered · 0.8s</span>
+            </div>
+            <div class="mini-call-row">
+              <span class="mc-dot" style="background:#22C55E"></span>
+              <span class="mc-name">James R.</span>
+              <span class="mc-time">Answered · 0.6s</span>
+            </div>
+            <div class="mini-call-row">
+              <span class="mc-dot" style="background:#22C55E"></span>
+              <span class="mc-name">Maria L.</span>
+              <span class="mc-time">Answered · 0.9s</span>
+            </div>
+          </div>
+        </div>
+        <h3>Every call, answered</h3>
+        <p>No voicemail, no hold music, no "we're currently closed." Your AI receptionist picks up every time and sounds natural doing it.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-visual">
+          <div class="mini-convo">
+            <div class="mini-bubble patient">Hi, I need to book a cleaning</div>
+            <div class="mini-bubble ai">I'd be happy to help. I have Thursday at 2pm or Friday at 10am — which works better?</div>
+            <div class="mini-bubble patient">Thursday works!</div>
+            <div class="mini-bubble ai">You're booked for Thursday at 2pm. You'll get a confirmation text shortly.</div>
+          </div>
+        </div>
+        <h3>Every conversation, natural</h3>
+        <p>Patients don't realize they're talking to AI. It handles FAQs, checks availability, and books — just like your best receptionist would.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-visual">
+          <div class="mini-reviews">
+            <div class="mini-review-row">
+              <span class="mr-stars">★★★★★</span>
+              <span class="mr-name">Karen W.</span>
+              <span class="mr-time">2h ago</span>
+            </div>
+            <div class="mini-review-row">
+              <span class="mr-stars">★★★★★</span>
+              <span class="mr-name">David K.</span>
+              <span class="mr-time">Yesterday</span>
+            </div>
+            <div class="mini-review-row">
+              <span class="mr-stars">★★★★★</span>
+              <span class="mr-name">Lisa P.</span>
+              <span class="mr-time">2 days ago</span>
+            </div>
+            <div class="mini-review-row">
+              <span class="mr-stars">★★★★☆</span>
+              <span class="mr-name">Tom R.</span>
+              <span class="mr-time">3 days ago</span>
+            </div>
+          </div>
+        </div>
+        <h3>Every review, earned</h3>
+        <p>After every appointment, patients get a text asking for a Google review. No manual work. Your review count grows on autopilot.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="feature-visual">
+          <div class="mini-chart">
+            <div class="mini-bar" style="height:40%"></div>
+            <div class="mini-bar" style="height:55%"></div>
+            <div class="mini-bar" style="height:45%"></div>
+            <div class="mini-bar" style="height:70%"></div>
+            <div class="mini-bar" style="height:60%"></div>
+            <div class="mini-bar" style="height:85%"></div>
+            <div class="mini-bar" style="height:95%"></div>
+          </div>
+        </div>
+        <h3>Every number, tracked</h3>
+        <p>See exactly how many calls were answered, appointments booked, and reviews collected — with clear monthly reports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="how-inner">
+    <div class="how-header reveal">
+      <h2>Live in under a week</h2>
+      <p>No complicated setup. We configure your AI receptionist, connect it to your phone line, and you're live.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="step-number">1</div>
+        <h3>We learn your practice</h3>
+        <p>Your hours, services, insurance, booking rules, and how you want calls handled. We configure the AI to sound like your practice.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-number">2</div>
+        <h3>We connect your line</h3>
+        <p>Calls that go unanswered or come in after hours automatically route to your AI receptionist. No hardware, no app to install.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-number">3</div>
+        <h3>Patients start booking</h3>
+        <p>The AI answers, books, and follows up. You get a dashboard showing every call, every booking, every review — in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header reveal">
+      <h2>Simple, transparent pricing</h2>
+      <p>One plan. Everything included. No per-call fees, no hidden charges, no long-term contracts.</p>
+    </div>
+    <div class="pricing-cards">
+      <div class="pricing-card light reveal">
+        <div class="pricing-label">DentAI Receptionist</div>
+        <div class="pricing-amount">$1,500<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">One-time setup: $750 · Month-to-month after 30 days</div>
+        <ul class="pricing-list">
+          <li>AI voice receptionist — 24/7 call answering</li>
+          <li>Appointment booking + calendar sync</li>
+          <li>Review generation automation</li>
+          <li>Patient follow-up sequences</li>
+          <li>No-show & reactivation campaigns</li>
+          <li>Real-time dashboard + monthly reports</li>
+          <li>HIPAA-aware infrastructure</li>
+        </ul>
+        <a class="pricing-btn-light" href="book.html">Get Started →</a>
+      </div>
+      <div class="pricing-card dark reveal">
+        <div class="pricing-label">DentAI Growth</div>
+        <div class="pricing-amount">Custom</div>
+        <div class="pricing-note">For practices that also want ads, SEO, and social media managed</div>
+        <ul class="pricing-list">
+          <li>Everything in Receptionist</li>
+          <li>Google Ads management</li>
+          <li>Local SEO + Google Business Profile</li>
+          <li>Meta Ads (Facebook + Instagram)</li>
+          <li>Social media content</li>
+          <li>Conversion tracking (GA4, GTM, Pixel)</li>
+          <li>Dedicated growth strategy</li>
+        </ul>
+        <a class="pricing-btn-dark" href="book.html">Contact Us →</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:0.82rem;color:var(--text-secondary);">One practice per geographic market. If your area is open, let's talk before someone else takes it.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-left">
+      <h2>Common questions</h2>
+      <p>Everything you need to know about DentAI before getting started.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          Do patients know they're talking to AI?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </button>
+        <div class="faq-answer"><p>Most don't. DentAI uses natural-sounding voice AI that handles conversations the way a trained receptionist would — greeting patients, answering common questions, and booking appointments without sounding robotic.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How does it connect to my phone system?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </button>
+        <div class="faq-answer"><p>We set up call forwarding on your existing phone line. Calls that go unanswered or come in after hours automatically route to DentAI. No new hardware, no app to install, and your existing number stays the same.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Is it HIPAA compliant?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </button>
+        <div class="faq-answer"><p>DentAI is built on HIPAA-aware infrastructure. We don't store protected health information, and all calls are handled with privacy-first protocols appropriate for dental practices.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I cancel anytime?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </button>
+        <div class="faq-answer"><p>Yes. After the first 30 days, it's month-to-month with no long-term contract. If DentAI isn't delivering results, you can cancel at the end of any billing cycle.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What does "one practice per market" mean?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </button>
+        <div class="faq-answer"><p>We only work with one dental practice per geographic area. This means we never help your competitors in the same market — your AI receptionist and growth strategy are exclusively yours in your area.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          What's the difference between Receptionist and Growth plans?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+        </button>
+        <div class="faq-answer"><p>The Receptionist plan covers AI call answering, appointment booking, and review automation. The Growth plan adds full marketing management — Google Ads, local SEO, social media, and conversion tracking — for practices that want us to drive new patients too.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="cta">
+  <div class="final-cta-inner reveal">
+    <h2>Stop losing patients to voicemail</h2>
+    <p>Book a free 20-minute demo. We'll show you exactly how DentAI would work for your practice — and how many calls you're currently missing.</p>
+    <a class="btn-primary" href="book.html">Book a Demo ↗</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Dent<span>AI</span></div>
+      <p>AI-powered receptionist for dental practices. Never miss a patient call again.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a Demo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html#terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 DentAI. All rights reserved.</span>
+    <span>HIPAA-aware · Month-to-month · One practice per market</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    if (reduceMotion) {
+      reveals.forEach(function(el) { el.classList.add('visible'); });
+    } else {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function(el) { obs.observe(el); });
+    }
+  }
+
+  // Tab-driven dashboard
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.dash-panel');
+  var sidebarItems = document.querySelectorAll('.dash-nav-item[data-tab]');
+  var activeTab = 0;
+  var TAB_DURATION = 6000;
+  var TICK = 30;
+  var progress = 0;
+  var timer = null;
+
+  function activateTab(index) {
+    activeTab = index;
+    progress = 0;
+
+    tabs.forEach(function(t, i) {
+      t.classList.toggle('active', i === index);
+      t.querySelector('.tab-progress').style.width = '0%';
+    });
+    panels.forEach(function(p, i) {
+      p.classList.toggle('active', i === index);
+    });
+    sidebarItems.forEach(function(s, i) {
+      s.classList.toggle('active', i === index);
+      var badge = s.querySelector('.live-badge');
+      if (badge) badge.style.display = (i === index && index === 0) ? '' : 'none';
+    });
+  }
+
+  function tick() {
+    progress += TICK;
+    var pct = Math.min((progress / TAB_DURATION) * 100, 100);
+    var bar = tabs[activeTab].querySelector('.tab-progress');
+    if (bar) bar.style.width = pct + '%';
+
+    if (progress >= TAB_DURATION) {
+      activateTab((activeTab + 1) % tabs.length);
+    }
+  }
+
+  function startTimer() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(tick, TICK);
+  }
+
+  tabs.forEach(function(t, i) {
+    t.addEventListener('click', function() {
+      activateTab(i);
+      startTimer();
+    });
+  });
+
+  sidebarItems.forEach(function(s, i) {
+    s.addEventListener('click', function() {
+      activateTab(i);
+      startTimer();
+    });
+  });
+
+  activateTab(0);
+  if (!reduceMotion) startTimer();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i) {
+        i.classList.remove('open');
+      });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — DentAI</title>
+<meta name="description" content="Meet the team behind DentAI. We're building AI-powered tools that help dental practices never miss a patient call again.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEFED;
+  --text: #1A1D23;
+  --text-secondary: #6B7080;
+  --accent: #0B6E4F;
+  --accent-light: #E6F4EE;
+  --border: #E3E3E0;
+  --black: #1A1D23;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --max-w: 1120px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(247,247,245,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.03em; }
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: none; gap: 32px;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-links a { transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-cta {
+  background: var(--black); color: var(--white);
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.page-hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 16px;
+}
+.page-hero p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* STORY */
+.story {
+  padding: 0 24px 80px;
+}
+.story-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 640px) { .story-inner { grid-template-columns: 1fr; gap: 32px; } }
+.story-block h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.story-block p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* TEAM */
+.team {
+  padding: 80px 24px;
+  background: var(--white);
+}
+.team-inner { max-width: var(--max-w); margin: 0 auto; }
+.team-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.team-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.team-header p {
+  color: var(--text-secondary);
+  max-width: 450px;
+  margin: 0 auto;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; } }
+.team-card {
+  text-align: center;
+}
+.team-avatar {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--white);
+}
+.team-avatar.a1 { background: var(--accent); }
+.team-avatar.a2 { background: #3B82F6; }
+.team-avatar.a3 { background: #8B5CF6; }
+.team-avatar.a4 { background: #EC4899; }
+.team-card h3 {
+  font-size: 1rem; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 2px;
+}
+.team-card .role {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.team-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* VALUES */
+.values {
+  padding: 80px 24px;
+}
+.values-inner { max-width: var(--max-w); margin: 0 auto; }
+.values-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.values-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 640px) { .values-grid { grid-template-columns: 1fr; } }
+.value-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+}
+.value-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+.value-card h3 {
+  font-size: 1rem; font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.value-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* CTA */
+.page-cta {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--white);
+}
+.page-cta h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.page-cta p {
+  color: var(--text-secondary);
+  max-width: 450px;
+  margin: 0 auto 24px;
+}
+.btn-primary {
+  background: var(--black); color: var(--white);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 600;
+  border: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+.footer-brand .footer-logo {
+  font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.footer-col h4 {
+  font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text);
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 0 auto;
+  padding-top: 24px;
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
+    <nav class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="book.html">Book a Demo ↗</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>We believe no patient call should go unanswered</h1>
+  <p>DentAI was built by a team that saw how much revenue dental practices were losing to missed calls, voicemail, and slow follow-up — and decided to fix it.</p>
+</section>
+
+<section class="story">
+  <div class="story-inner">
+    <div class="story-block reveal">
+      <h2>The problem we saw</h2>
+      <p>Dental practices spend thousands on ads to get the phone to ring. But when it does — during lunch, after hours, on busy mornings — 30–40% of those calls go straight to voicemail.</p>
+      <p>That's not a staffing problem. It's a structural one. No front desk can answer every call, every time. But patients don't leave voicemails — they call the next practice.</p>
+    </div>
+    <div class="story-block reveal">
+      <h2>What we built</h2>
+      <p>DentAI is an AI receptionist purpose-built for dental practices. It answers every call in under a second, books appointments into your real calendar, and follows up with patients automatically.</p>
+      <p>We pair it with review automation and reactivation campaigns — so you're not just answering calls, you're growing the practice. One AI system, no extra staff, live in under a week.</p>
+    </div>
+  </div>
+</section>
+
+<section class="team">
+  <div class="team-inner">
+    <div class="team-header reveal">
+      <h2>The team</h2>
+      <p>Small team, big focus. Everyone here works on one thing: making dental practices more efficient.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar a1">AF</div>
+        <h3>Affan Faiz</h3>
+        <div class="role">Founder & CEO</div>
+        <p>Product vision, go-to-market strategy, and client relationships. Obsessed with making AI practical for healthcare.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar a2">RK</div>
+        <h3>Ryan Kowalski</h3>
+        <div class="role">Head of Engineering</div>
+        <p>Builds the AI voice pipeline and integrations. Previously at a health-tech startup. Believes infrastructure should be invisible.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar a3">SP</div>
+        <h3>Samira Patel</h3>
+        <div class="role">Head of Operations</div>
+        <p>Manages onboarding, practice configuration, and quality. Makes sure every AI receptionist sounds like it belongs at your practice.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar a4">JM</div>
+        <h3>Jessica Martinez</h3>
+        <div class="role">Customer Success</div>
+        <p>Your point of contact after launch. Monitors performance, suggests optimizations, and makes sure the numbers keep going up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="values-inner">
+    <div class="values-header reveal">
+      <h2>What drives us</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon">🎯</div>
+        <h3>Results over features</h3>
+        <p>We don't ship features for the sake of it. Every capability we build ties directly to more patients booked or more revenue captured.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🤝</div>
+        <h3>One market, one practice</h3>
+        <p>We never work with competing practices in the same area. Your success is our success — and we keep it exclusive.</p>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-icon">🔒</div>
+        <h3>Privacy by default</h3>
+        <p>HIPAA-aware from day one. We don't store PHI, we don't sell data, and every call log belongs to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page-cta">
+  <div class="reveal">
+    <h2>Want to see DentAI in action?</h2>
+    <p>Book a 20-minute demo. We'll show you exactly how it works for your practice.</p>
+    <a class="btn-primary" href="book.html">Book a Demo ↗</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Dent<span>AI</span></div>
+      <p>AI-powered receptionist for dental practices. Never miss a patient call again.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a Demo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html#terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 DentAI. All rights reserved.</span>
+    <span>HIPAA-aware · Month-to-month · One practice per market</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Demo — DentAI</title>
+<meta name="description" content="Schedule a free 20-minute demo of DentAI. See how our AI receptionist answers calls, books appointments, and grows your practice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEFED;
+  --text: #1A1D23;
+  --text-secondary: #6B7080;
+  --accent: #0B6E4F;
+  --accent-light: #E6F4EE;
+  --border: #E3E3E0;
+  --black: #1A1D23;
+  --white: #FFFFFF;
+  --red: #DC2626;
+  --radius: 12px;
+  --max-w: 1120px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(247,247,245,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.03em; }
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: none; gap: 32px;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-links a { transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-cta {
+  background: var(--black); color: var(--white);
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* BOOKING LAYOUT */
+.booking {
+  padding: 60px 24px 80px;
+}
+.booking-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .booking-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* LEFT: INFO */
+.booking-info h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.booking-info > p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.expect-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 16px;
+  margin-bottom: 40px;
+}
+.expect-item {
+  display: flex; gap: 14px;
+  align-items: flex-start;
+}
+.expect-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.expect-item h3 {
+  font-size: 0.92rem; font-weight: 700;
+  margin-bottom: 2px;
+}
+.expect-item p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.trust-row {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.trust-pill {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--text-secondary);
+}
+.trust-pill .tp-icon {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+}
+
+/* RIGHT: FORM */
+.booking-form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.04);
+}
+.form-title {
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.form-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+.form-label {
+  display: block;
+  font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-label .required { color: var(--red); }
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11,110,79,0.1);
+}
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #B0B4BC;
+}
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%236B7080' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.form-input.error,
+.form-select.error {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.08);
+}
+.error-msg {
+  font-size: 0.75rem;
+  color: var(--red);
+  margin-top: 4px;
+  display: none;
+}
+.form-input.error + .error-msg,
+.form-select.error + .error-msg {
+  display: block;
+}
+
+.form-submit {
+  width: 100%;
+  background: var(--black); color: var(--white);
+  padding: 14px; border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem; font-weight: 600;
+  border: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  margin-top: 8px;
+}
+.form-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+.form-submit:disabled {
+  opacity: 0.5; cursor: not-allowed; transform: none;
+}
+
+.form-fine {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+.form-fine a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* SUCCESS STATE */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+.success-state.show { display: block; }
+.success-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.6rem;
+}
+.success-state h2 {
+  font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 8px;
+}
+.success-state p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.form-error {
+  display: none;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #B91C1C;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.form-error.show { display: block; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+.footer-brand .footer-logo {
+  font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.footer-col h4 {
+  font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text);
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 0 auto;
+  padding-top: 24px;
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="book.html">Book a Demo ↗</a>
+  </div>
+</header>
+
+<section class="booking">
+  <div class="booking-inner">
+
+    <!-- LEFT: Info -->
+    <div class="booking-info">
+      <h1>See DentAI in action — free, no commitment</h1>
+      <p>Book a 20-minute walkthrough. We'll show you how the AI receptionist handles real calls, books appointments, and grows your reviews.</p>
+
+      <ul class="expect-list">
+        <li class="expect-item">
+          <div class="expect-icon">📞</div>
+          <div>
+            <h3>Live call demo</h3>
+            <p>Hear the AI receptionist handle a real patient call in real time — booking, FAQs, and follow-up.</p>
+          </div>
+        </li>
+        <li class="expect-item">
+          <div class="expect-icon">📊</div>
+          <div>
+            <h3>Your practice, your numbers</h3>
+            <p>We'll walk through how DentAI would integrate with your specific phone system, hours, and booking flow.</p>
+          </div>
+        </li>
+        <li class="expect-item">
+          <div class="expect-icon">🗓️</div>
+          <div>
+            <h3>Launch timeline</h3>
+            <p>Most practices go live within 5 business days. We'll map out your onboarding start to finish.</p>
+          </div>
+        </li>
+        <li class="expect-item">
+          <div class="expect-icon">💬</div>
+          <div>
+            <h3>Q&A</h3>
+            <p>Ask anything — pricing, HIPAA, integration, results. No sales pitch, just answers.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="trust-row">
+        <div class="trust-pill"><span class="tp-icon"></span> No commitment required</div>
+        <div class="trust-pill"><span class="tp-icon"></span> 20 minutes</div>
+        <div class="trust-pill"><span class="tp-icon"></span> One practice per market</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="booking-form-card">
+      <div id="formView">
+        <div class="form-title">Request your demo</div>
+        <div class="form-subtitle">We'll get back to you within 1 business day.</div>
+        <div class="form-error" id="errorView" role="alert"></div>
+
+        <form id="demoForm" novalidate>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First name <span class="required">*</span></label>
+              <input type="text" class="form-input" name="firstName" placeholder="John" required>
+              <div class="error-msg">First name is required</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last name <span class="required">*</span></label>
+              <input type="text" class="form-input" name="lastName" placeholder="Smith" required>
+              <div class="error-msg">Last name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Work email <span class="required">*</span></label>
+            <input type="email" class="form-input" name="email" placeholder="john@smithdental.com" required>
+            <div class="error-msg">Please enter a valid email</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone number <span class="required">*</span></label>
+            <input type="tel" class="form-input" name="phone" placeholder="(555) 123-4567" required>
+            <div class="error-msg">Phone number is required</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Practice name <span class="required">*</span></label>
+            <input type="text" class="form-input" name="practice" placeholder="Smith Family Dentistry" required>
+            <div class="error-msg">Practice name is required</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">City <span class="required">*</span></label>
+              <input type="text" class="form-input" name="city" placeholder="Newark" required>
+              <div class="error-msg">City is required</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">State <span class="required">*</span></label>
+              <select class="form-select" name="state" required>
+                <option value="" disabled selected>Select state</option>
+                <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+                <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+                <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+                <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+                <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+                <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+                <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+                <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+                <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                <option>Wisconsin</option><option>Wyoming</option>
+              </select>
+              <div class="error-msg">State is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Monthly call volume (estimate)</label>
+            <select class="form-select" name="callVolume">
+              <option value="" disabled selected>Select range</option>
+              <option>Under 100 calls</option>
+              <option>100–200 calls</option>
+              <option>200–400 calls</option>
+              <option>400+ calls</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Anything else we should know?</label>
+            <textarea class="form-textarea" name="notes" placeholder="Current phone system, biggest pain points, questions..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="submitBtn">Book My Demo →</button>
+        </form>
+
+        <p class="form-fine">By submitting, you agree to our <a href="privacy.html">Privacy Policy</a>. We'll never share your info.</p>
+      </div>
+
+      <div class="success-state" id="successView">
+        <div class="success-icon">✓</div>
+        <h2>You're booked!</h2>
+        <p>We'll reach out within 1 business day to confirm your demo time. Check your inbox for a confirmation email.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Dent<span>AI</span></div>
+      <p>AI-powered receptionist for dental practices. Never miss a patient call again.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a Demo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html#terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 DentAI. All rights reserved.</span>
+    <span>HIPAA-aware · Month-to-month · One practice per market</span>
+  </div>
+</footer>
+
+<script src="site-config-cursor.js"></script>
+<script src="form-cursor.js"></script>
+<script>
+  initDentAIForm();
+</script>
+
+</body>
+</html>
