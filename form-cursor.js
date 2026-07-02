@@ -48,7 +48,7 @@
 
   function getSubmitEmail() {
     var config = window.DentAI || {};
-    return config.formSubmitEmail || config.contactEmail || 'aafaan72@gmail.com';
+    return config.formSubmitEmail || config.contactEmail || 'iffi0274@gmail.com';
   }
 
   function submitWithJson(form) {
