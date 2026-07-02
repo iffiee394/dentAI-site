@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DentAI — AI Receptionist for Dental Practices</title>
-<meta name="description" content="DentAI answers every patient call, books appointments, and follows up automatically — 24/7. Built for US dental practices. $1,500/mo. Month-to-month.">
+<meta name="description" content="DentAI answers every patient call, books appointments, and follows up automatically — 24/7. Built for US dental practices. Plans from $749/mo. Month-to-month.">
 <meta property="og:title" content="DentAI — Never Miss a Patient Call Again">
 <meta property="og:description" content="AI receptionist that answers calls, books appointments, and sends follow-ups — even when your office is closed.">
 <meta property="og:type" content="website">
@@ -583,19 +583,43 @@ img, svg { display: block; max-width: 100%; }
 }
 .pricing-cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  max-width: 800px;
+  max-width: var(--max-w);
   margin: 0 auto;
+  align-items: stretch;
 }
-@media (max-width: 640px) { .pricing-cards { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .pricing-cards { grid-template-columns: 1fr; max-width: 420px; } }
 .pricing-card {
   border-radius: 16px;
   padding: 36px;
+  display: flex;
+  flex-direction: column;
 }
 .pricing-card.light {
   background: var(--white);
   border: 1px solid var(--border);
+}
+.pricing-card.featured {
+  background: var(--white);
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 32px rgba(11, 110, 79, 0.12);
+  position: relative;
+}
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 .pricing-card.dark {
   background: var(--black);
@@ -649,6 +673,17 @@ img, svg { display: block; max-width: 100%; }
   transition: opacity 0.15s;
 }
 .pricing-btn-light:hover { opacity: 0.85; }
+.pricing-btn-featured {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--accent);
+  color: var(--white);
+  padding: 14px; border-radius: 8px;
+  font-size: 0.92rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.pricing-btn-featured:hover { opacity: 0.9; }
 .pricing-btn-dark {
   display: inline-block;
   width: 100%;
@@ -1168,38 +1203,50 @@ footer {
   <div class="pricing-inner">
     <div class="pricing-header reveal">
       <h2>Simple, transparent pricing</h2>
-      <p>One plan. Everything included. No per-call fees, no hidden charges, no long-term contracts.</p>
+      <p>Three tiers to match your practice. No per-call fees, no hidden charges, no long-term contracts.</p>
     </div>
     <div class="pricing-cards">
       <div class="pricing-card light reveal">
-        <div class="pricing-label">DentAI Receptionist</div>
-        <div class="pricing-amount">$1,500<span class="pricing-period"> /month</span></div>
-        <div class="pricing-note">One-time setup: $750 · Month-to-month after 30 days</div>
+        <div class="pricing-label">Starter</div>
+        <div class="pricing-amount">$749<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">Core AI receptionist for practices getting started</div>
         <ul class="pricing-list">
           <li>AI voice receptionist — 24/7 call answering</li>
           <li>Appointment booking + calendar sync</li>
+          <li>After-hours & overflow handling</li>
+          <li>Basic call reporting</li>
+          <li>HIPAA-aware infrastructure</li>
+        </ul>
+        <a class="pricing-btn-light" href="book.html" style="margin-top:auto;">Get Started →</a>
+      </div>
+      <div class="pricing-card light featured reveal">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-label">Professional</div>
+        <div class="pricing-amount">$999<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">Full receptionist suite for growing practices</div>
+        <ul class="pricing-list">
+          <li>Everything in Starter</li>
           <li>Review generation automation</li>
           <li>Patient follow-up sequences</li>
           <li>No-show & reactivation campaigns</li>
           <li>Real-time dashboard + monthly reports</li>
-          <li>HIPAA-aware infrastructure</li>
+          <li>Priority support</li>
         </ul>
-        <a class="pricing-btn-light" href="book.html">Get Started →</a>
+        <a class="pricing-btn-featured" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
       <div class="pricing-card dark reveal">
-        <div class="pricing-label">DentAI Growth</div>
+        <div class="pricing-label">Growth</div>
         <div class="pricing-amount">Custom</div>
-        <div class="pricing-note">For practices that also want ads, SEO, and social media managed</div>
+        <div class="pricing-note">For practices that also want ads, SEO, and social managed</div>
         <ul class="pricing-list">
-          <li>Everything in Receptionist</li>
+          <li>Everything in Professional</li>
           <li>Google Ads management</li>
           <li>Local SEO + Google Business Profile</li>
           <li>Meta Ads (Facebook + Instagram)</li>
           <li>Social media content</li>
-          <li>Conversion tracking (GA4, GTM, Pixel)</li>
           <li>Dedicated growth strategy</li>
         </ul>
-        <a class="pricing-btn-dark" href="book.html">Contact Us →</a>
+        <a class="pricing-btn-dark" href="book.html" style="margin-top:auto;">Contact Us →</a>
       </div>
     </div>
     <p style="text-align:center;margin-top:20px;font-size:0.82rem;color:var(--text-secondary);">One practice per geographic market. If your area is open, let's talk before someone else takes it.</p>
@@ -1251,10 +1298,10 @@ footer {
       </div>
       <div class="faq-item">
         <button class="faq-question">
-          What's the difference between Receptionist and Growth plans?
+          What's the difference between Starter, Professional, and Growth?
           <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
         </button>
-        <div class="faq-answer"><p>The Receptionist plan covers AI call answering, appointment booking, and review automation. The Growth plan adds full marketing management — Google Ads, local SEO, social media, and conversion tracking — for practices that want us to drive new patients too.</p></div>
+        <div class="faq-answer"><p>Starter ($749/mo) covers 24/7 AI call answering and appointment booking. Professional ($999/mo) adds review automation, follow-up campaigns, and detailed reporting. Growth (custom pricing) adds full marketing — ads, SEO, and social media — for practices that want us to drive new patients too.</p></div>
       </div>
     </div>
   </div>
