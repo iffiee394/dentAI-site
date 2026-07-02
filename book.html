@@ -337,6 +337,19 @@ footer {
 </head>
 <body>
 
+<!-- Netlify form detection (parsed at deploy time) -->
+<form name="demo-request" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstName">
+  <input type="text" name="lastName">
+  <input type="email" name="email">
+  <input type="tel" name="phone">
+  <input type="text" name="practice">
+  <input type="text" name="city">
+  <input type="text" name="state">
+  <input type="text" name="callVolume">
+  <textarea name="notes"></textarea>
+</form>
+
 <header class="nav">
   <div class="container nav-inner">
     <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
@@ -403,8 +416,9 @@ footer {
         <div class="form-subtitle">We'll get back to you within 1 business day.</div>
         <div class="form-error" id="errorView" role="alert"></div>
 
-        <form id="demoForm" novalidate>
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <form id="demoForm" name="demo-request" action="/book.html" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="demo-request">
+          <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">First name <span class="required">*</span></label>

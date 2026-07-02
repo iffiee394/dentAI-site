@@ -31,69 +31,32 @@
     return valid;
   }
 
-  function formToPayload(form) {
-    var payload = {};
-    new FormData(form).forEach(function (value, key) {
-      if (key !== '_honey') {
-        payload[key] = value;
-      }
-    });
-
-    payload._subject = 'New DentAI Demo Request';
-    payload._template = 'table';
-    payload._captcha = 'false';
-    payload._replyto = payload.email || '';
-    return payload;
-  }
-
-  function getSubmitEmail() {
+  function encodeFormData(form) {
     var config = window.DentAI || {};
-    return config.formSubmitEmail || config.contactEmail || 'iffi0274@gmail.com';
+    var data = new FormData(form);
+    data.set('form-name', config.formName || form.getAttribute('name') || 'demo-request');
+    return new URLSearchParams(data).toString();
   }
 
-  function submitWithJson(form) {
-    var email = getSubmitEmail();
-    return fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(formToPayload(form))
-    }).then(function (res) {
-      return res.json().then(function (data) {
-        if (res.ok && (data.success === true || data.success === 'true')) {
-          return data;
-        }
-        throw new Error(data.message || 'Submission failed');
-      });
-    });
-  }
-
-  function submitWithFormEncoded(form) {
-    var email = getSubmitEmail();
-    var body = new URLSearchParams(formToPayload(form)).toString();
-    return fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json'
-      },
-      body: body
-    }).then(function (res) {
-      return res.json().then(function (data) {
-        if (res.ok && (data.success === true || data.success === 'true')) {
-          return data;
-        }
-        throw new Error(data.message || 'Submission failed');
-      });
-    });
+  function getFormEndpoint(form) {
+    var config = window.DentAI || {};
+    return config.formPage || form.getAttribute('action') || '/book.html';
   }
 
   function submitForm(form) {
-    return submitWithJson(form).catch(function () {
-      return submitWithFormEncoded(form);
+    return fetch(getFormEndpoint(form), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeFormData(form)
+    }).then(function (res) {
+      if (res.ok) return res;
+      throw new Error('Submission failed (status ' + res.status + ')');
     });
+  }
+
+  function getContactEmail() {
+    var config = window.DentAI || {};
+    return config.contactEmail || 'iffi0274@gmail.com';
   }
 
   window.initDentAIForm = function (options) {
@@ -106,7 +69,7 @@
     var errorView = document.getElementById(options.errorViewId || 'errorView');
     var submitBtn = document.getElementById(options.submitBtnId || 'submitBtn');
     var submitLabel = submitBtn ? submitBtn.textContent : 'Submit';
-    var inbox = getSubmitEmail();
+    var inbox = getContactEmail();
 
     function hideError() {
       if (errorView) errorView.classList.remove('show');
@@ -151,11 +114,9 @@
         .then(function () {
           showSuccess();
         })
-        .catch(function (err) {
-          var msg = (err && err.message) ? err.message : 'Could not send right now.';
+        .catch(function () {
           showError(
-            msg + ' Try again in a moment. First time setup? Check ' + inbox +
-            ' for a FormSubmit activation email and click the link, then submit again.'
+            'Could not send right now. Try again in a moment, or email us at ' + inbox + '.'
           );
         })
         .finally(resetButton);
