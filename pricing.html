@@ -265,12 +265,12 @@ img, svg { display: block; max-width: 100%; }
   0%, 100% { box-shadow: 0 4px 20px rgba(11, 110, 79, 0.08); }
   35% { box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.35), 0 8px 28px rgba(26, 86, 219, 0.15); }
 }
-.p-card.highlight-target {
-  animation: growth-pkg-highlight 1.4s ease;
-}
 @keyframes growth-pkg-highlight {
-  0%, 100% { box-shadow: none; }
-  35% { box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.4), 0 8px 28px rgba(26, 86, 219, 0.18); }
+  0%, 100% { box-shadow: 0 4px 20px rgba(11, 110, 79, 0.08); }
+  35% { box-shadow: 0 0 0 3px rgba(11, 110, 79, 0.35), 0 8px 28px rgba(11, 110, 79, 0.15); }
+}
+.pricing-card.highlight-target {
+  animation: growth-pkg-highlight 1.4s ease;
 }
 
 /* BUNDLE VALUE CALLOUT */
@@ -365,7 +365,7 @@ img, svg { display: block; max-width: 100%; }
 .bridge-left {}
 .bridge-eyebrow {
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #1A56DB; margin-bottom: 5px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 5px;
 }
 .bridge-left h3 {
   font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
@@ -377,8 +377,8 @@ img, svg { display: block; max-width: 100%; }
 }
 .bridge-right a {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.85rem; font-weight: 600; color: #1A56DB;
-  background: #EBF0FD; border-radius: 8px; padding: 10px 18px;
+  font-size: 0.85rem; font-weight: 600; color: var(--accent-dark);
+  background: var(--accent-light); border-radius: 8px; padding: 10px 18px;
   transition: opacity 0.15s;
 }
 .bridge-right a:hover { opacity: 0.82; }
@@ -580,186 +580,62 @@ footer {
 <section>
   <div class="section-wrap" style="padding-top: 52px;">
     <div class="section-head reveal">
-      <div class="section-eyebrow blue">Growth Services — optional add-on</div>
+      <div class="section-eyebrow green">Growth Services — optional add-on</div>
       <h2>Marketing packages that fill chairs</h2>
       <p>Layer any package on top of your AI Receptionist plan. Ad spend billed separately by Google and Meta — not included below.</p>
     </div>
 
-    <div class="cards-grid">
+    <div class="pricing-cards">
 
-      <!-- ESSENTIALS -->
-      <div class="p-card reveal">
-        <div class="p-label">Essentials</div>
-        <div>
-          <span class="p-amount">$199</span><span class="p-period"> /month</span>
-        </div>
-        <div class="p-tagline">Build your presence and start generating leads with foundational social content and paid ads.</div>
-        <ul class="p-features">
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Facebook and Instagram ads management
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Custom ad creative and graphic design
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Video editing for ads
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            10 social posts per month
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            2 AI-generated videos per month
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Lead tracking setup
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Basic monthly performance snapshot
-          </li>
+      <div class="pricing-card light reveal">
+        <div class="pricing-label">Essentials</div>
+        <div class="pricing-amount">$199<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">Build your presence and start generating leads with foundational social content and paid ads.</div>
+        <ul class="pricing-list">
+          <li>Facebook and Instagram ads management</li>
+          <li>Custom ad creative and graphic design</li>
+          <li>Video editing for ads</li>
+          <li>10 social posts per month</li>
+          <li>2 AI-generated videos per month</li>
+          <li>Lead tracking setup</li>
+          <li>Basic monthly performance snapshot</li>
         </ul>
-        <a class="p-btn outline" href="book.html">Get started →</a>
+        <a class="pricing-btn-light" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
 
-      <!-- GROWTH (FEATURED BLUE) -->
-      <div class="p-card featured-blue reveal" id="growth-pkg">
-        <div class="p-badge blue">Most popular</div>
-        <div class="p-label">Growth</div>
-        <div>
-          <span class="p-amount">$299</span><span class="p-period"> /month</span>
-        </div>
-        <div class="p-tagline">More reach, more results. This is the package bundled into Professional — available standalone too.</div>
-        <ul class="p-features">
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Everything in Essentials
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            TikTok ads management
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            30 social posts per month
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            4 AI-generated videos per month
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            AI-powered captions and hashtag strategy
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Content A/B testing
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Monthly strategy call
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Detailed monthly reporting with insights
-          </li>
+      <div class="pricing-card light featured reveal" id="growth-pkg">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-label">Growth</div>
+        <div class="pricing-amount">$299<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">More reach, more results. This is the package bundled into Professional — available standalone too.</div>
+        <ul class="pricing-list">
+          <li>Everything in Essentials</li>
+          <li>TikTok ads management</li>
+          <li>30 social posts per month</li>
+          <li>4 AI-generated videos per month</li>
+          <li>AI-powered captions and hashtag strategy</li>
+          <li>Content A/B testing</li>
+          <li>Monthly strategy call</li>
+          <li>Detailed monthly reporting with insights</li>
         </ul>
-        <a class="p-btn blue-fill" href="book.html">Get started →</a>
+        <a class="pricing-btn-featured" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
 
-      <!-- CONTENT ENGINE -->
-      <div class="p-card reveal">
-        <div class="p-label">Content Engine</div>
-        <div>
-          <span class="p-amount">$499</span><span class="p-period"> /month</span>
-        </div>
-        <div class="p-tagline">The full viral content pipeline — scripts, reels, trend-jacking. Your practice becomes unmissable online.</div>
-        <ul class="p-features">
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Everything in Growth
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Google Ads management
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            6 AI-generated videos and reels per month
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Viral reel templates and proven script library
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Trend-jacking calendar — ride what's working now
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Custom storyboards and briefs for every video
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Advanced analytics and ROI dashboard
-          </li>
-          <li>
-            <span class="check blue">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Weekly check-ins and priority support
-          </li>
+      <div class="pricing-card light reveal">
+        <div class="pricing-label">Content Engine</div>
+        <div class="pricing-amount">$499<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">The full viral content pipeline — scripts, reels, trend-jacking. Your practice becomes unmissable online.</div>
+        <ul class="pricing-list">
+          <li>Everything in Growth</li>
+          <li>Google Ads management</li>
+          <li>6 AI-generated videos and reels per month</li>
+          <li>Viral reel templates and proven script library</li>
+          <li>Trend-jacking calendar — ride what's working now</li>
+          <li>Custom storyboards and briefs for every video</li>
+          <li>Advanced analytics and ROI dashboard</li>
+          <li>Weekly check-ins and priority support</li>
         </ul>
-        <a class="p-btn outline" href="book.html">Get started →</a>
+        <a class="pricing-btn-light" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
 
     </div>
