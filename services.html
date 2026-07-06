@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth Services — DentAI</title>
+<meta name="description" content="Full-service dental marketing: Google Ads, Meta Ads, Local SEO, and social media management. Paired with your AI receptionist so every lead converts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEFED;
+  --text: #1A1D23;
+  --text-secondary: #6B7080;
+  --accent: #0B6E4F;
+  --accent-light: #E6F4EE;
+  --accent-dark: #084D38;
+  --border: #E3E3E0;
+  --black: #1A1D23;
+  --white: #FFFFFF;
+  --radius: 12px;
+  --max-w: 1120px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(247,247,245,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.03em; }
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: none; gap: 32px;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-links a { transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-cta {
+  background: var(--black); color: var(--white);
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.page-hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.8rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 24px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 16px;
+}
+.page-hero h1 em { font-style: normal; color: var(--accent); }
+.page-hero p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto 32px;
+}
+.hero-ctas {
+  display: flex; gap: 12px;
+  justify-content: center; flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--black); color: var(--white);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 600;
+  border: none; cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 500;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.btn-outline:hover { border-color: var(--text); }
+
+/* AI + ADS CONNECTION */
+.connection {
+  padding: 0 24px 80px;
+}
+.connection-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--black);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  color: var(--white);
+}
+.connection-inner h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.connection-inner p {
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.connection-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.flow-step {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 140px;
+}
+.flow-step .fs-icon {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+.flow-step .fs-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+.flow-step .fs-sub {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+.flow-arrow {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.3);
+}
+@media (max-width: 640px) {
+  .flow-arrow { transform: rotate(90deg); }
+  .connection-flow { flex-direction: column; }
+  .connection-inner { padding: 36px 24px; }
+}
+
+/* SERVICES GRID */
+.services {
+  padding: 80px 24px;
+  background: var(--white);
+}
+.services-inner { max-width: var(--max-w); margin: 0 auto; }
+.services-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.services-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.services-header p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.service-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.service-block:last-child { border-bottom: none; }
+.service-block.reverse { direction: rtl; }
+.service-block.reverse > * { direction: ltr; }
+@media (max-width: 768px) {
+  .service-block,
+  .service-block.reverse { grid-template-columns: 1fr; gap: 32px; direction: ltr; }
+}
+
+.service-info {}
+.service-tag {
+  display: inline-flex;
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+.service-info h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.service-info p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.service-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+.service-features li::before {
+  content: '✓';
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.service-visual {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mini mockups inside service visuals */
+.mock-ad-card {
+  width: 100%;
+  max-width: 280px;
+}
+.mock-ad-header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 12px;
+}
+.mock-ad-icon {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700; color: var(--white);
+}
+.mock-ad-icon.google { background: #4285F4; }
+.mock-ad-icon.meta { background: #1877F2; }
+.mock-ad-icon.seo { background: var(--accent); }
+.mock-ad-icon.social { background: #E4405F; }
+.mock-ad-label {
+  font-size: 0.78rem; font-weight: 600;
+}
+.mock-ad-label span {
+  font-size: 0.68rem; color: var(--text-secondary); font-weight: 400;
+  display: block;
+}
+.mock-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.mock-metric {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+.mock-metric .mm-val {
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.mock-metric .mm-label {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+.mock-metric .mm-val.up { color: var(--accent); }
+.mock-metric .mm-val.blue { color: #3B82F6; }
+
+.mock-search {
+  width: 100%; max-width: 300px;
+}
+.mock-search-bar {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.mock-search-bar .search-g {
+  font-size: 1rem; font-weight: 700;
+}
+.mock-search-bar .search-g span:nth-child(1) { color: #4285F4; }
+.mock-search-bar .search-g span:nth-child(2) { color: #EA4335; }
+.mock-search-bar .search-g span:nth-child(3) { color: #FBBC05; }
+.mock-search-bar .search-g span:nth-child(4) { color: #4285F4; }
+.mock-result {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+.mock-result.ad {
+  border-color: var(--accent);
+  border-width: 1.5px;
+}
+.mock-result .mr-url {
+  font-size: 0.68rem; color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+.mock-result .mr-title {
+  font-size: 0.85rem; font-weight: 600;
+  color: #1A0DAB;
+  margin-bottom: 2px;
+}
+.mock-result.ad .mr-title { color: var(--accent-dark); }
+.mock-result .mr-desc {
+  font-size: 0.72rem; color: var(--text-secondary);
+  line-height: 1.4;
+}
+.mock-result .mr-badge {
+  display: inline-block;
+  font-size: 0.62rem; font-weight: 700;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.mock-social {
+  width: 100%; max-width: 260px;
+}
+.mock-post {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.mock-post-img {
+  height: 100px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--white);
+}
+.mock-post-img.p1 { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); }
+.mock-post-img.p2 { background: linear-gradient(135deg, #3B82F6, #1D4ED8); }
+.mock-post-body {
+  padding: 12px 14px;
+}
+.mock-post-body .mp-text {
+  font-size: 0.75rem;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.mock-post-stats {
+  display: flex; gap: 14px;
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* PROCESS */
+.process {
+  padding: 80px 24px;
+}
+.process-inner { max-width: var(--max-w); margin: 0 auto; }
+.process-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.process-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.process-header p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) { .process-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .process-steps { grid-template-columns: 1fr; } }
+.process-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+}
+.ps-number {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--accent);
+  margin: 0 auto 14px;
+}
+.process-step h3 {
+  font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.process-step p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* WHAT'S INCLUDED */
+.included {
+  padding: 80px 24px;
+  background: var(--white);
+}
+.included-inner { max-width: var(--max-w); margin: 0 auto; }
+.included-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.included-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.included-header p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) { .included-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .included-grid { grid-template-columns: 1fr; } }
+.included-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.ii-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+.included-item h3 {
+  font-size: 0.92rem; font-weight: 700;
+  margin-bottom: 4px;
+}
+.included-item p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* PACKAGES PRICING */
+.packages {
+  padding: 80px 24px;
+}
+.packages-inner { max-width: var(--max-w); margin: 0 auto; }
+.packages-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.packages-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.packages-header p {
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0 auto;
+}
+.pkg-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+@media (max-width: 900px) { .pkg-cards { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+.pkg-card {
+  border-radius: 16px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pkg-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.pkg-card.standard {
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+.pkg-card.popular {
+  background: var(--white);
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 32px rgba(11, 110, 79, 0.12);
+}
+.pkg-card.premium {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.pkg-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pkg-badge.gold { background: linear-gradient(135deg, #D4A017, #B8860B); }
+.pkg-badge.fire { background: linear-gradient(135deg, #E44D26, #C0392B); }
+.pkg-icon {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+.pkg-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+.pkg-card.standard .pkg-label { color: var(--text-secondary); }
+.pkg-card.popular .pkg-label { color: var(--accent); }
+.pkg-card.premium .pkg-label { color: rgba(255,255,255,0.6); }
+.pkg-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.pkg-period {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.pkg-card.standard .pkg-period { color: var(--text-secondary); }
+.pkg-card.popular .pkg-period { color: var(--text-secondary); }
+.pkg-card.premium .pkg-period { color: rgba(255,255,255,0.5); }
+.pkg-tagline {
+  font-size: 0.88rem;
+  margin: 8px 0 24px;
+  line-height: 1.5;
+}
+.pkg-card.standard .pkg-tagline { color: var(--text-secondary); }
+.pkg-card.popular .pkg-tagline { color: var(--text-secondary); }
+.pkg-card.premium .pkg-tagline { color: rgba(255,255,255,0.6); }
+.pkg-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  flex: 1;
+}
+.pkg-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  padding: 7px 0;
+  line-height: 1.4;
+}
+.pkg-features li::before {
+  content: '✓';
+  font-weight: 700;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pkg-card.standard .pkg-features li::before { color: var(--accent); }
+.pkg-card.popular .pkg-features li::before { color: var(--accent); }
+.pkg-card.premium .pkg-features li::before { color: #22C55E; }
+.pkg-card.premium .pkg-features li { color: rgba(255,255,255,0.85); }
+.pkg-features li.highlight {
+  font-weight: 600;
+}
+.pkg-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+  margin-top: auto;
+}
+.pkg-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.pkg-btn.btn-standard {
+  background: var(--black);
+  color: var(--white);
+}
+.pkg-btn.btn-popular {
+  background: var(--accent);
+  color: var(--white);
+}
+.pkg-btn.btn-premium {
+  background: var(--white);
+  color: var(--black);
+}
+.pkg-note {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* CTA */
+.page-cta {
+  padding: 80px 24px;
+  text-align: center;
+}
+.page-cta-inner {
+  max-width: 600px; margin: 0 auto;
+}
+.page-cta h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.page-cta p {
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 24px;
+  font-size: 1rem;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+.footer-brand .footer-logo {
+  font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.footer-col h4 {
+  font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text);
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 0 auto;
+  padding-top: 24px;
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="book.html">Book a Demo ↗</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-badge">Growth Services</div>
+  <h1>Dental marketing that <em>fills chairs</em></h1>
+  <p>Google Ads, Meta Ads, local SEO, and social media — fully managed for your practice. We bring the patients. You do what you do best.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="book.html">Book a Growth Consult ↗</a>
+    <a class="btn-outline" href="#services">See All Services</a>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="connection">
+  <div class="connection-inner reveal">
+    <h2>Most practices waste ad spend. Here's why.</h2>
+    <p>You're running ads, but are you tracking which ones actually bring patients through the door? Most practices can't connect a click to a booked appointment. We can.</p>
+    <div class="connection-flow">
+      <div class="flow-step">
+        <div class="fs-icon">🔍</div>
+        <div class="fs-label">Patient searches</div>
+        <div class="fs-sub">"dentist near me"</div>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">
+        <div class="fs-icon">📣</div>
+        <div class="fs-label">Your ad shows up</div>
+        <div class="fs-sub">Google + Meta</div>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">
+        <div class="fs-icon">📞</div>
+        <div class="fs-label">They call or click</div>
+        <div class="fs-sub">Tracked lead</div>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">
+        <div class="fs-icon">📅</div>
+        <div class="fs-label">Appointment booked</div>
+        <div class="fs-sub">Revenue tracked</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <h2>Everything your practice needs to grow</h2>
+      <p>Four channels, one team, fully managed. You focus on patients — we fill the chairs.</p>
+    </div>
+
+    <!-- Google Ads -->
+    <div class="service-block reveal">
+      <div class="service-info">
+        <div class="service-tag">Google Ads</div>
+        <h3>Show up when patients are searching</h3>
+        <p>We build and manage Google Ads campaigns targeting high-intent keywords in your area — "dentist near me," "emergency tooth pain," "dental implants [city]." Every click goes to a landing page optimized for calls.</p>
+        <ul class="service-features">
+          <li>Keyword research + competitor analysis</li>
+          <li>Ad copy written for dental patients</li>
+          <li>Conversion-optimized landing pages</li>
+          <li>Call tracking + attribution</li>
+          <li>Monthly optimization + reporting</li>
+        </ul>
+      </div>
+      <div class="service-visual">
+        <div class="mock-ad-card">
+          <div class="mock-ad-header">
+            <div class="mock-ad-icon google">G</div>
+            <div class="mock-ad-label">Google Ads Dashboard<span>Last 30 days</span></div>
+          </div>
+          <div class="mock-metrics">
+            <div class="mock-metric">
+              <div class="mm-val">2,847</div>
+              <div class="mm-label">Impressions</div>
+            </div>
+            <div class="mock-metric">
+              <div class="mm-val blue">312</div>
+              <div class="mm-label">Clicks</div>
+            </div>
+            <div class="mock-metric">
+              <div class="mm-val up">47</div>
+              <div class="mm-label">Calls generated</div>
+            </div>
+            <div class="mock-metric">
+              <div class="mm-val up">$32</div>
+              <div class="mm-label">Cost per call</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meta Ads -->
+    <div class="service-block reverse reveal">
+      <div class="service-info">
+        <div class="service-tag">Meta Ads</div>
+        <h3>Reach patients before they search</h3>
+        <p>Facebook and Instagram ads put your practice in front of people in your area who haven't started searching yet — but will need a dentist. We handle creative, targeting, and optimization.</p>
+        <ul class="service-features">
+          <li>Audience targeting by location + demographics</li>
+          <li>Ad creative (images + copy)</li>
+          <li>A/B testing across placements</li>
+          <li>Retargeting website visitors</li>
+          <li>Lead form + call campaigns</li>
+        </ul>
+      </div>
+      <div class="service-visual">
+        <div class="mock-ad-card">
+          <div class="mock-ad-header">
+            <div class="mock-ad-icon meta">f</div>
+            <div class="mock-ad-label">Meta Ads Dashboard<span>Last 30 days</span></div>
+          </div>
+          <div class="mock-metrics">
+            <div class="mock-metric">
+              <div class="mm-val">18.4K</div>
+              <div class="mm-label">People reached</div>
+            </div>
+            <div class="mock-metric">
+              <div class="mm-val blue">524</div>
+              <div class="mm-label">Link clicks</div>
+            </div>
+            <div class="mock-metric">
+              <div class="mm-val up">38</div>
+              <div class="mm-label">Leads</div>
+            </div>
+            <div class="mock-metric">
+              <div class="mm-val up">$28</div>
+              <div class="mm-label">Cost per lead</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Local SEO -->
+    <div class="service-block reveal">
+      <div class="service-info">
+        <div class="service-tag">Local SEO</div>
+        <h3>Own the map pack in your area</h3>
+        <p>When someone Googles "dentist near me," the top 3 map results get 70% of the clicks. We optimize your Google Business Profile, build citations, and manage your online presence to get you there.</p>
+        <ul class="service-features">
+          <li>Google Business Profile optimization</li>
+          <li>Local citation building + cleanup</li>
+          <li>Review strategy (paired with AI automation)</li>
+          <li>On-page SEO for your website</li>
+          <li>Monthly ranking reports</li>
+        </ul>
+      </div>
+      <div class="service-visual">
+        <div class="mock-search">
+          <div class="mock-search-bar">
+            <span class="search-g"><span>G</span><span>o</span><span>o</span><span>g</span></span>
+            dentist near me
+          </div>
+          <div class="mock-result ad">
+            <div class="mr-badge">Ad · Managed by DentAI</div>
+            <div class="mr-title">Your Practice — Book Online Today</div>
+            <div class="mr-desc">Top-rated dentist in [City]. Same-day appointments available. Call now.</div>
+          </div>
+          <div class="mock-result">
+            <div class="mr-url">yourpractice.com</div>
+            <div class="mr-title">Your Practice | Family Dentistry</div>
+            <div class="mr-desc">Trusted dental care for the whole family. ★★★★★ 4.9 (127 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="service-block reverse reveal">
+      <div class="service-info">
+        <div class="service-tag">Social Media</div>
+        <h3>Stay visible between visits</h3>
+        <p>Consistent social media keeps your practice top-of-mind. We create and post content that builds trust, showcases your team, and gives patients a reason to refer friends.</p>
+        <ul class="service-features">
+          <li>Content calendar + strategy</li>
+          <li>Post design (graphics + captions)</li>
+          <li>Facebook + Instagram posting</li>
+          <li>Community management</li>
+          <li>Monthly engagement reports</li>
+        </ul>
+      </div>
+      <div class="service-visual">
+        <div class="mock-social">
+          <div class="mock-post">
+            <div class="mock-post-img p1">🦷 5 Signs You Need a Cleaning</div>
+            <div class="mock-post-body">
+              <div class="mp-text">Don't wait for pain to visit the dentist. Here are 5 signs it's time for a cleaning...</div>
+              <div class="mock-post-stats">
+                <span>❤️ 47 likes</span>
+                <span>💬 8 comments</span>
+                <span>↗️ 12 shares</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-post">
+            <div class="mock-post-img p2">✨ Meet Dr. Sarah — New Team Member</div>
+            <div class="mock-post-body">
+              <div class="mp-text">We're thrilled to welcome Dr. Sarah to our team! She specializes in...</div>
+              <div class="mock-post-stats">
+                <span>❤️ 83 likes</span>
+                <span>💬 14 comments</span>
+                <span>↗️ 23 shares</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <h2>How Growth onboarding works</h2>
+      <p>From kickoff to live campaigns in 2 weeks. Here's what happens.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="ps-number">1</div>
+        <h3>Discovery call</h3>
+        <p>We learn your goals, market, competition, and what's worked (or hasn't) before.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="ps-number">2</div>
+        <h3>Strategy + setup</h3>
+        <p>Ad accounts, tracking pixels, Google Business Profile, content calendar — all configured.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="ps-number">3</div>
+        <h3>Campaigns go live</h3>
+        <p>Ads start running, AI receptionist catches every call, reviews start building.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="ps-number">4</div>
+        <h3>Optimize + report</h3>
+        <p>Weekly tweaks, monthly reports. You see exactly what's working and where every dollar goes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included">
+  <div class="included-inner">
+    <div class="included-header reveal">
+      <h2>What's included in every Growth engagement</h2>
+      <p>Full-service dental marketing. One team, one invoice, total transparency.</p>
+    </div>
+    <div class="included-grid">
+      <div class="included-item reveal">
+        <div class="ii-icon">🎯</div>
+        <h3>Campaign Strategy</h3>
+        <p>Custom marketing plan built around your practice goals, market, and budget.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">📣</div>
+        <h3>Google Ads Management</h3>
+        <p>Search + call campaigns targeting patients actively looking for a dentist.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">📱</div>
+        <h3>Meta Ads Management</h3>
+        <p>Facebook + Instagram campaigns for awareness, retargeting, and lead generation.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">📍</div>
+        <h3>Local SEO</h3>
+        <p>Google Business Profile, citations, review strategy, and on-page optimization.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">📸</div>
+        <h3>Social Media Content</h3>
+        <p>Designed posts, captions, and scheduling across Facebook and Instagram.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">📊</div>
+        <h3>Analytics + Tracking</h3>
+        <p>GA4, Google Tag Manager, Meta Pixel — full conversion tracking and attribution.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">⭐</div>
+        <h3>Review Automation</h3>
+        <p>Post-appointment SMS + email sequences that turn visits into 5-star Google reviews.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">🔄</div>
+        <h3>Patient Reactivation</h3>
+        <p>Automated outreach to inactive patients to bring them back for overdue appointments.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">📋</div>
+        <h3>Monthly Reports</h3>
+        <p>Clear breakdown of spend, leads, bookings, reviews, and ROI. No jargon, just numbers.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">🤖</div>
+        <h3>AI Receptionist (optional)</h3>
+        <p>Pair with our AI receptionist so every lead your campaigns generate gets answered and booked — 24/7.</p>
+      </div>
+      <div class="included-item reveal">
+        <div class="ii-icon">🗺️</div>
+        <h3>Market Exclusivity</h3>
+        <p>We only take one practice per area. Your campaigns never compete with another client of ours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING PACKAGES -->
+<section class="packages" id="packages">
+  <div class="packages-inner">
+    <div class="packages-header reveal">
+      <h2>Marketing packages that bring patients in</h2>
+      <p>Choose the tier that fits your growth goals. Every package is designed to generate leads, fill chairs, and grow your practice — month over month.</p>
+    </div>
+
+    <div class="pkg-cards">
+
+      <!-- TIER 1: Essentials -->
+      <div class="pkg-card standard reveal">
+        <div class="pkg-icon">⚡</div>
+        <div class="pkg-label">Essentials</div>
+        <div class="pkg-price">$199<span class="pkg-period"> /mo</span></div>
+        <div class="pkg-tagline">Build your presence and start generating leads with foundational social + paid ads.</div>
+        <ul class="pkg-features">
+          <li>Facebook ads management</li>
+          <li>Instagram ads management</li>
+          <li>Custom ad creative & graphic design</li>
+          <li>Video editing for ads</li>
+          <li>10 social posts per month</li>
+          <li>2 AI-generated videos per month</li>
+          <li>Lead tracking setup</li>
+          <li>Basic monthly performance snapshot</li>
+        </ul>
+        <a class="pkg-btn btn-standard" href="book.html">Get Started →</a>
+      </div>
+
+      <!-- TIER 2: Growth -->
+      <div class="pkg-card popular reveal">
+        <div class="pkg-badge gold">Most Popular</div>
+        <div class="pkg-icon">🔥</div>
+        <div class="pkg-label">Growth</div>
+        <div class="pkg-price">$299<span class="pkg-period"> /mo</span></div>
+        <div class="pkg-tagline">More content, more reach, better results. Accelerated patient acquisition with AI-powered posts.</div>
+        <ul class="pkg-features">
+          <li class="highlight">Everything in Essentials, plus:</li>
+          <li>TikTok ads management</li>
+          <li>30 social posts per month</li>
+          <li>4 AI-generated videos per month</li>
+          <li>AI-powered captions & hashtag strategy</li>
+          <li>Content A/B testing</li>
+          <li>Monthly strategy call</li>
+          <li>Detailed monthly reporting with insights</li>
+        </ul>
+        <a class="pkg-btn btn-popular" href="book.html">Get Started →</a>
+      </div>
+
+      <!-- TIER 3: Content Engine -->
+      <div class="pkg-card premium reveal">
+        <div class="pkg-badge fire">Maximum Growth</div>
+        <div class="pkg-icon">🚀</div>
+        <div class="pkg-label">Content Engine</div>
+        <div class="pkg-price">$499<span class="pkg-period"> /mo</span></div>
+        <div class="pkg-tagline">The full viral content pipeline — scripts, reels, trend-jacking, personalized strategy. Your practice becomes unmissable online.</div>
+        <ul class="pkg-features">
+          <li class="highlight">Everything in Growth, plus:</li>
+          <li>Google Ads management</li>
+          <li>Full viral content pipeline (scripts, hooks, ideas)</li>
+          <li>6 AI-generated videos + reels per month</li>
+          <li>Viral reel templates & proven script library</li>
+          <li>Trend-jacking calendar — ride what's working now</li>
+          <li>Personalized content strategy for your practice</li>
+          <li>Custom storyboards & briefs for every video</li>
+          <li>Advanced analytics & ROI dashboard</li>
+          <li>Weekly check-ins + priority support</li>
+        </ul>
+        <a class="pkg-btn btn-premium" href="book.html">Get Started →</a>
+      </div>
+
+    </div>
+    <p class="pkg-note">All packages are month-to-month. No long-term contracts. Ad spend is separate and billed directly by platforms.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <div class="page-cta-inner reveal">
+    <h2>Ready to fill every chair?</h2>
+    <p>Book a free Growth consultation. We'll audit your current marketing, show you the gaps, and map out a plan to start filling more chairs.</p>
+    <a class="btn-primary" href="book.html">Book a Growth Consult ↗</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Dent<span>AI</span></div>
+      <p>AI-powered receptionist and marketing for dental practices.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="index.html#features">Features</a>
+      <a href="services.html">Growth Services</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a Demo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html#terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 DentAI. All rights reserved.</span>
+    <span>HIPAA-aware · Month-to-month · One practice per market</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>

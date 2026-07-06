@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results & Case Studies — DentAI</title>
+<meta name="description" content="Real campaigns, real numbers. See how DentAI helps dental practices lower cost per lead, increase conversions, and fill more chairs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F7F5;
+  --surface: #FFFFFF;
+  --surface-alt: #EFEFED;
+  --text: #1A1D23;
+  --text-secondary: #6B7080;
+  --accent: #0B6E4F;
+  --accent-light: #E6F4EE;
+  --accent-dark: #084D38;
+  --border: #E3E3E0;
+  --black: #1A1D23;
+  --white: #FFFFFF;
+  --blue: #1A56DB;
+  --blue-light: #EBF0FD;
+  --green: #16A34A;
+  --green-light: #ECFDF5;
+  --amber: #92660A;
+  --amber-light: #FBF5E6;
+  --max-w: 1120px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(247,247,245,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.03em; }
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: none; gap: 32px;
+  font-size: 0.875rem; font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-links a { transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); font-weight: 600; }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-cta {
+  background: var(--black); color: var(--white);
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 0.875rem; font-weight: 600;
+  transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.page-hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 0.8rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 24px;
+}
+.page-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin-bottom: 16px;
+}
+.page-hero h1 em { font-style: normal; color: var(--accent); }
+.page-hero p {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* HIGHLIGHT STATS */
+.highlights {
+  padding: 0 24px 80px;
+}
+.highlights-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 640px) { .highlights-grid { grid-template-columns: repeat(2, 1fr); } }
+.highlight-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+}
+.highlight-val {
+  font-size: 1.6rem; font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  line-height: 1;
+}
+.highlight-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  line-height: 1.3;
+}
+
+/* SECTION HEADERS */
+.section {
+  padding: 80px 24px;
+}
+.section.alt { background: var(--white); }
+.section-inner { max-width: var(--max-w); margin: 0 auto; }
+.section-header {
+  margin-bottom: 48px;
+}
+.section-header.center { text-align: center; }
+.section-label {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.section-header h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.section-header p {
+  color: var(--text-secondary);
+  max-width: 560px;
+  font-size: 0.95rem;
+}
+.section-header.center p { margin: 0 auto; }
+
+/* CASE STUDIES */
+.case-study {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.cs-header {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cs-meta { flex: 1; min-width: 200px; }
+.cs-tag {
+  display: inline-block;
+  font-size: 0.7rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.cs-tag.google { background: var(--blue-light); color: var(--blue); }
+.cs-tag.meta { background: var(--amber-light); color: var(--amber); }
+.cs-tag.seo { background: var(--green-light); color: var(--green); }
+.cs-tag.full { background: var(--surface-alt); color: var(--text); }
+.cs-header h3 {
+  font-size: 1.15rem; font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.cs-header .location {
+  font-size: 0.82rem; color: var(--text-secondary);
+}
+.cs-results {
+  display: flex; gap: 0;
+  flex-shrink: 0;
+}
+.cs-result {
+  padding: 10px 20px;
+  text-align: center;
+  border-left: 1px solid var(--border);
+}
+.cs-result:first-child { border-left: none; }
+.cs-result-num {
+  font-size: 1.3rem; font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.cs-result-num.up { color: var(--green); }
+.cs-result-num.down { color: var(--blue); }
+.cs-result-label {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+.cs-body {
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 640px) {
+  .cs-body { grid-template-columns: 1fr; }
+  .cs-header { flex-direction: column; }
+  .cs-results { flex-wrap: wrap; }
+}
+.cs-section h4 {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.cs-section ul {
+  list-style: none; padding: 0;
+}
+.cs-section ul li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 5px 0 5px 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.cs-section ul li::before {
+  content: '';
+  position: absolute; left: 0; top: 12px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.cs-quote {
+  background: var(--bg);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-top: 16px;
+  border-radius: 0 8px 8px 0;
+}
+.cs-quote p {
+  font-size: 0.85rem;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.6;
+}
+.cs-quote .cs-author {
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* BENCHMARK TABLE */
+.bench-wrap {
+  overflow-x: auto;
+}
+.benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  min-width: 600px;
+}
+.benchmark-table th {
+  background: var(--surface-alt);
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.benchmark-table td {
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.benchmark-table tr:last-child td { border-bottom: none; }
+.benchmark-table tr:hover td { background: var(--bg); }
+.badge-good {
+  background: var(--green-light); color: var(--green);
+  font-size: 0.68rem; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+}
+.badge-avg {
+  background: var(--amber-light); color: var(--amber);
+  font-size: 0.68rem; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+}
+
+/* PROCESS */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) { .process-grid { grid-template-columns: 1fr; } }
+.process-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+.pc-number {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.process-card h3 {
+  font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.process-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* HONEST NOTE */
+.honest-note {
+  max-width: 720px;
+  margin: 48px auto 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+}
+.honest-note .section-label { margin-bottom: 8px; }
+.honest-note p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTA */
+.page-cta {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--white);
+}
+.page-cta h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.page-cta p {
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 24px;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: var(--black); color: var(--white);
+  padding: 14px 28px; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+}
+.footer-inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 640px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+.footer-brand .footer-logo {
+  font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;
+}
+.footer-brand .footer-logo span { color: var(--accent); }
+.footer-brand p {
+  font-size: 0.82rem; color: var(--text-secondary);
+  line-height: 1.5; max-width: 240px;
+}
+.footer-col h4 {
+  font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-secondary); margin-bottom: 14px;
+}
+.footer-col a {
+  display: block; font-size: 0.88rem; color: var(--text);
+  padding: 4px 0; transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: var(--max-w); margin: 0 auto;
+  padding-top: 24px; margin-top: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--text-secondary);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+/* ANIMATIONS */
+.reveal {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
+    <nav class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="results.html" class="active">Results</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="book.html">Book a Demo ↗</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="hero-badge">Case Studies & Results</div>
+  <h1>Real campaigns. <em>Real numbers.</em></h1>
+  <p>We don't show mockups. These are actual results from dental practices we've worked with — what was broken, what we changed, and what happened next.</p>
+</section>
+
+<!-- HIGHLIGHT STATS -->
+<section class="highlights">
+  <div class="highlights-grid">
+    <div class="highlight-card reveal">
+      <div class="highlight-val">$20–70</div>
+      <div class="highlight-label">Cost per lead, optimized campaigns</div>
+    </div>
+    <div class="highlight-card reveal">
+      <div class="highlight-val">172%</div>
+      <div class="highlight-label">Avg conversion lift after restructure</div>
+    </div>
+    <div class="highlight-card reveal">
+      <div class="highlight-val">800+</div>
+      <div class="highlight-label">Leads generated for a single practice</div>
+    </div>
+    <div class="highlight-card reveal">
+      <div class="highlight-val">Week 1</div>
+      <div class="highlight-label">Campaigns live from access date</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Case Studies</div>
+      <h2>Practices we've helped grow</h2>
+      <p>Four campaigns we managed, with full transparency on what we found, what we fixed, and the numbers that followed.</p>
+    </div>
+
+    <!-- Case Study 1 -->
+    <div class="case-study reveal">
+      <div class="cs-header">
+        <div class="cs-meta">
+          <span class="cs-tag google">Google Ads</span>
+          <h3>Lakeview Smile Studio — Chicago, IL</h3>
+          <div class="location">Full-service general practice with declining ad performance over 12 months</div>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num up">172%</div>
+            <div class="cs-result-label">More conversions</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num down">25%</div>
+            <div class="cs-result-label">Lower cost/lead</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num up">10%</div>
+            <div class="cs-result-label">Conv. rate lift</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-section">
+          <h4>What we found</h4>
+          <ul>
+            <li>Broad match keywords pulling in low-intent traffic — dental schools, job seekers, free clinics</li>
+            <li>No negative keyword list — budget bleeding on irrelevant searches for over a year</li>
+            <li>Zero conversion tracking — the practice had no idea which ads actually produced patients</li>
+            <li>Generic ad copy that didn't differentiate from competitors</li>
+          </ul>
+        </div>
+        <div class="cs-section">
+          <h4>What we did</h4>
+          <ul>
+            <li>Full account audit — paused wasteful campaigns, restructured from scratch</li>
+            <li>Replaced broad match with phrase and exact match keywords targeting real patients</li>
+            <li>Built a 400+ term negative keyword list to block irrelevant traffic</li>
+            <li>Installed call tracking and form attribution — every lead tied to its source</li>
+            <li>Wrote patient-focused ad copy and A/B tested against the old versions</li>
+            <li>Tightened geo-targeting to a 10-mile radius around the practice</li>
+          </ul>
+          <div class="cs-quote">
+            <p>"Fewer junk calls, more real patients walking through the door. We could finally see what our ad spend was actually doing."</p>
+            <div class="cs-author">— Dr. Amanda Park, Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Study 2 -->
+    <div class="case-study reveal">
+      <div class="cs-header">
+        <div class="cs-meta">
+          <span class="cs-tag google">Google Ads + SEO</span>
+          <h3>Bloor Dufferin Dental Centre</h3>
+          <div class="location">Toronto — transitioning from newspaper ads to digital</div>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num down">$70</div>
+            <div class="cs-result-label">Cost per patient</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num up">14/16</div>
+            <div class="cs-result-label">Keywords page 1</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num down">180×</div>
+            <div class="cs-result-label">Sharper targeting</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-section">
+          <h4>What we found</h4>
+          <ul>
+            <li>Still spending on newspaper ads with no way to measure ROI</li>
+            <li>Google Ads reaching 900,000 people at 1.29% CTR — wildly too broad</li>
+            <li>All services lumped into one campaign — implants, cleanings, emergencies competing for the same budget</li>
+            <li>Every ad pointed to the homepage — no dedicated landing pages</li>
+          </ul>
+        </div>
+        <div class="cs-section">
+          <h4>What we did</h4>
+          <ul>
+            <li>Built separate campaigns per service: implants, braces, emergency, cosmetic, new patients</li>
+            <li>Created dedicated landing pages with appointment forms for each service</li>
+            <li>Tightened geo-targeting to a 4km radius — impressions dropped from 900K to 5K, but every one was relevant</li>
+            <li>Researched and targeted high-converting specific terms instead of generic keywords</li>
+            <li>Cost per new patient dropped to $70 — well below the $150–300 industry average</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Study 3 -->
+    <div class="case-study reveal">
+      <div class="cs-header">
+        <div class="cs-meta">
+          <span class="cs-tag full">Google Ads — Scale Campaign</span>
+          <h3>Mesa Family Dental — Gilbert, AZ</h3>
+          <div class="location">Single-location practice scaling from referral-only to paid acquisition</div>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num up">800+</div>
+            <div class="cs-result-label">Leads in 12 mo</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num down">$20.57</div>
+            <div class="cs-result-label">Cost per lead</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num up">197</div>
+            <div class="cs-result-label">Tracked conversions</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-section">
+          <h4>What we found</h4>
+          <ul>
+            <li>Entirely referral-dependent — no predictable lead pipeline</li>
+            <li>No tracking infrastructure — couldn't attribute a single patient to a channel</li>
+            <li>Needed cost per lead under $25 for the economics to work at their scale</li>
+            <li>Previous agency ran campaigns with no optimization cadence</li>
+          </ul>
+        </div>
+        <div class="cs-section">
+          <h4>What we did</h4>
+          <ul>
+            <li>Built a full tracking stack — call recording, daily dashboards, source attribution</li>
+            <li>Optimized for lead quality, not just volume — filtered out price shoppers and wrong-fit patients</li>
+            <li>Monthly optimization cycle: cut underperforming keywords, scale proven winners</li>
+            <li>Delivered 800+ high-intent leads over 12 months at $20.57 average cost per lead</li>
+          </ul>
+          <div class="cs-quote">
+            <p>"For the first time, we have a system that gets better every month. It's not just ads — it's a machine."</p>
+            <div class="cs-author">— Dr. Kevin Reyes, Practice Owner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Study 4 -->
+    <div class="case-study reveal">
+      <div class="cs-header">
+        <div class="cs-meta">
+          <span class="cs-tag meta">Google Ads — Implants Focus</span>
+          <h3>Sunny Isles Dental — High-Value Cases</h3>
+          <div class="location">South Florida practice focused on implant and cosmetic patients</div>
+        </div>
+        <div class="cs-results">
+          <div class="cs-result">
+            <div class="cs-result-num up">19%</div>
+            <div class="cs-result-label">Ad conv. rate</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num up">Steady</div>
+            <div class="cs-result-label">Implant case flow</div>
+          </div>
+          <div class="cs-result">
+            <div class="cs-result-num up">Page 1</div>
+            <div class="cs-result-label">Google rankings</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-section">
+          <h4>What we found</h4>
+          <ul>
+            <li>Inconsistent flow of high-value implant cases — feast or famine monthly</li>
+            <li>Generic campaigns attracting cleanings and basic visits, not implant patients</li>
+            <li>No remarketing — website visitors left and never came back</li>
+            <li>Competitor practices dominating local implant search results</li>
+          </ul>
+        </div>
+        <div class="cs-section">
+          <h4>What we did</h4>
+          <ul>
+            <li>Built campaigns exclusively targeting implant-intent keywords and high-value procedures</li>
+            <li>Combined paid search with custom video ads for trust-building</li>
+            <li>Set up remarketing for implant page visitors — stayed in front of undecided patients</li>
+            <li>Achieved 19% paid ad conversion rate — 4.5× the industry average of 4.2%</li>
+            <li>Established a steady, predictable monthly flow of implant consultations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENCHMARKS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Industry Benchmarks</div>
+      <h2>What "good" looks like for dental advertising</h2>
+      <p>Based on 2025–2026 data across hundreds of dental campaigns in competitive US markets. These are the numbers we benchmark against.</p>
+    </div>
+    <div class="bench-wrap reveal">
+      <table class="benchmark-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Industry Average</th>
+            <th>Optimized Campaign</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cost per click (general)</td>
+            <td>$8.50 – $15.75</td>
+            <td>$8 – $12</td>
+            <td><span class="badge-avg">Trackable from day 1</span></td>
+          </tr>
+          <tr>
+            <td>Cost per click (implants/cosmetic)</td>
+            <td>$12 – $50+</td>
+            <td>$15 – $30</td>
+            <td><span class="badge-avg">High value, worth it</span></td>
+          </tr>
+          <tr>
+            <td>Cost per lead (form or call)</td>
+            <td>$50 – $95</td>
+            <td>$20 – $70</td>
+            <td><span class="badge-good">Our target range</span></td>
+          </tr>
+          <tr>
+            <td>Conversion rate (click → lead)</td>
+            <td>3.8 – 4.2%</td>
+            <td>5 – 8%</td>
+            <td><span class="badge-good">Achievable with restructure</span></td>
+          </tr>
+          <tr>
+            <td>New patient acquisition cost</td>
+            <td>$150 – $300</td>
+            <td>$70 – $150</td>
+            <td><span class="badge-good">Target range</span></td>
+          </tr>
+          <tr>
+            <td>Google Ads ROI (well-managed)</td>
+            <td>200 – 400%</td>
+            <td>300 – 500%</td>
+            <td><span class="badge-good">Standard target</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-header center reveal">
+      <div class="section-label">How we work</div>
+      <h2>From kickoff to live campaigns, fast</h2>
+      <p>No bloated onboarding. We get access, build the foundation, and start driving leads.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="pc-number">1</div>
+        <h3>Audit + tracking setup</h3>
+        <p>We install GA4, Tag Manager, Meta Pixel, and call tracking. Every call and form submission attributed to its source from day one. Your Google Business Profile gets optimized in parallel.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="pc-number">2</div>
+        <h3>Campaigns go live</h3>
+        <p>Campaigns launch within the first week — structured by service, targeted by location, and written to convert. Phone calls typically start within 48–72 hours of going live.</p>
+      </div>
+      <div class="process-card reveal">
+        <div class="pc-number">3</div>
+        <h3>Optimize + report</h3>
+        <p>We cut what's expensive and not converting, scale what's working, and add negative keywords from real search data. You get clear monthly reports — spend, leads, cost per patient.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="page-cta">
+  <div class="reveal">
+    <h2>Want results like these for your practice?</h2>
+    <p>Book a free consultation. We'll audit your current marketing, show you what's working and what's not, and build a plan to start driving real patients.</p>
+    <a class="btn-primary" href="book.html">Book a Free Consultation ↗</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Dent<span>AI</span></div>
+      <p>AI-powered receptionist and marketing for dental practices.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="index.html#features">Features</a>
+      <a href="services.html">Growth Services</a>
+      <a href="results.html">Results</a>
+      <a href="index.html#pricing">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="book.html">Book a Demo</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html#terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 DentAI. All rights reserved.</span>
+    <span>HIPAA-aware · Month-to-month · One practice per market</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
