@@ -190,6 +190,84 @@ img, svg { display: block; max-width: 100%; }
 }
 .p-card.dark .p-tagline { color: rgba(255,255,255,0.45); border-top-color: rgba(255,255,255,0.08); }
 
+.pricing-footer { text-align: center; margin-top: 16px; font-size: 0.78rem; color: var(--text-secondary); }
+
+/* Index-style AI Receptionist cards */
+.pricing-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .pricing-cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+}
+.pricing-card {
+  border-radius: 14px; padding: 24px 22px;
+  display: flex; flex-direction: column;
+}
+.pricing-card.light { background: var(--surface); border: 1px solid var(--border); }
+.pricing-card.featured {
+  background: var(--surface); border: 2px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(11, 110, 79, 0.08); position: relative;
+}
+.pricing-badge {
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: var(--white);
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+}
+.pricing-card.dark { background: var(--black); color: var(--white); }
+.pricing-label {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.pricing-card.light .pricing-label { color: var(--text-secondary); }
+.pricing-card.dark .pricing-label { color: rgba(255,255,255,0.6); }
+.pricing-amount { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+.pricing-period { font-size: 0.88rem; font-weight: 400; }
+.pricing-card.light .pricing-period { color: var(--text-secondary); }
+.pricing-card.dark .pricing-period { color: rgba(255,255,255,0.6); }
+.pricing-note { font-size: 0.8rem; margin: 6px 0 12px; line-height: 1.45; }
+.pricing-card.light .pricing-note { color: var(--text-secondary); }
+.pricing-card.dark .pricing-note { color: rgba(255,255,255,0.5); }
+.pricing-card .bundle-callout { margin: 0 0 12px; text-decoration: none; color: inherit; }
+.pricing-list { list-style: none; padding: 0; margin: 0 0 16px; flex: 1; }
+.pricing-list li {
+  font-size: 0.82rem; padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 7px; line-height: 1.4;
+}
+.pricing-list li::before {
+  content: '✓'; font-weight: 700; font-size: 0.75rem;
+  flex-shrink: 0; margin-top: 1px;
+}
+.pricing-card.light .pricing-list li::before { color: var(--accent); }
+.pricing-card.dark .pricing-list li::before { color: #22C55E; }
+.pricing-card.dark .pricing-list li { color: rgba(255,255,255,0.85); }
+.pricing-btn-light, .pricing-btn-featured, .pricing-btn-dark {
+  display: inline-block; width: 100%; text-align: center;
+  padding: 11px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  transition: opacity 0.15s; margin-top: auto;
+}
+.pricing-btn-light { background: var(--black); color: var(--white); }
+.pricing-btn-light:hover { opacity: 0.85; }
+.pricing-btn-featured { background: var(--accent); color: var(--white); }
+.pricing-btn-featured:hover { opacity: 0.9; }
+.pricing-btn-dark { background: var(--white); color: var(--black); }
+.pricing-btn-dark:hover { opacity: 0.9; }
+.pricing-card.highlight-target {
+  animation: pkg-highlight 1.4s ease;
+}
+@keyframes pkg-highlight {
+  0%, 100% { box-shadow: 0 4px 20px rgba(11, 110, 79, 0.08); }
+  35% { box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.35), 0 8px 28px rgba(26, 86, 219, 0.15); }
+}
+.p-card.highlight-target {
+  animation: growth-pkg-highlight 1.4s ease;
+}
+@keyframes growth-pkg-highlight {
+  0%, 100% { box-shadow: none; }
+  35% { box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.4), 0 8px 28px rgba(26, 86, 219, 0.18); }
+}
+
 /* BUNDLE VALUE CALLOUT */
 .bundle-callout {
   margin-top: 10px;
@@ -427,161 +505,57 @@ footer {
       <p>Your AI front desk — answers every call, books appointments, and follows up 24/7. Set up in 48 hours, no hardware required.</p>
     </div>
 
-    <div class="cards-grid">
+    <div class="pricing-cards">
 
-      <!-- STARTER -->
-      <div class="p-card reveal">
-        <div class="p-label">Starter</div>
-        <div>
-          <span class="p-amount">$499</span><span class="p-period"> /month</span>
-        </div>
-        <div class="p-tagline">Core AI receptionist for practices ready to stop missing calls and start capturing every patient.</div>
-        <ul class="p-features">
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            AI voice receptionist — 24/7 call answering
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Appointment booking + calendar sync
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            After-hours and overflow handling
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Basic call reporting dashboard
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            HIPAA-aware infrastructure
-          </li>
+      <div class="pricing-card light reveal">
+        <div class="pricing-label">Starter</div>
+        <div class="pricing-amount">$499<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">Core AI receptionist for practices ready to stop missing calls and start capturing every patient.</div>
+        <ul class="pricing-list">
+          <li>AI voice receptionist — 24/7 call answering</li>
+          <li>Appointment booking + calendar sync</li>
+          <li>After-hours and overflow handling</li>
+          <li>Basic call reporting dashboard</li>
+          <li>HIPAA-aware infrastructure</li>
         </ul>
-        <a class="p-btn outline" href="book.html">Get started →</a>
+        <a class="pricing-btn-light" href="book.html">Get Started →</a>
       </div>
 
-      <!-- PROFESSIONAL (FEATURED) -->
-      <div class="p-card featured reveal">
-        <div class="p-badge green">Most popular</div>
-        <div class="p-label">Professional</div>
-        <div>
-          <span class="p-amount">$749</span><span class="p-period"> /month</span>
-        </div>
-        <div class="p-tagline">Full AI receptionist suite — plus Growth marketing included. The only plan most practices ever need.</div>
-        <a class="bundle-callout" href="#growth-pkg" style="display:block;text-decoration:none;">
+      <div class="pricing-card light featured reveal">
+        <div class="pricing-badge">Most popular</div>
+        <div class="pricing-label">Professional</div>
+        <div class="pricing-amount">$749<span class="pricing-period"> /month</span></div>
+        <div class="pricing-note">Full AI receptionist suite — plus Growth marketing included. The only plan most practices ever need.</div>
+        <a class="bundle-callout" href="#growth-pkg" id="bundleJump">
           <div class="bundle-callout-label">Bundle included</div>
           <div class="bundle-callout-value">Growth marketing package <span class="bundle-callout-strike">$299/mo</span> — included free&nbsp;↓</div>
         </a>
-        <ul class="p-features">
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Everything in Starter
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Review generation automation
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Patient follow-up sequences
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            No-show and reactivation campaigns
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Real-time dashboard + monthly reports
-          </li>
-          <li>
-            <span class="check green">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Priority support
-          </li>
+        <ul class="pricing-list">
+          <li>Everything in Starter</li>
+          <li>Review generation automation</li>
+          <li>Patient follow-up sequences</li>
+          <li>No-show and reactivation campaigns</li>
+          <li>Real-time dashboard + monthly reports</li>
+          <li>Priority support</li>
         </ul>
-        <a class="p-btn green-fill" href="book.html">Get started →</a>
+        <a class="pricing-btn-featured" href="book.html">Get Started →</a>
       </div>
 
-      <!-- GROWTH BUNDLE (DARK) -->
-      <div class="p-card dark reveal">
-        <div class="p-label">Growth Bundle</div>
-        <div>
-          <span class="p-amount">Custom</span>
-        </div>
-        <div class="p-tagline">For practices that want the complete picture — AI receptionist, full-stack marketing, Google Ads, SEO, and a dedicated growth strategy.</div>
-        <ul class="p-features">
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Everything in Professional
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Google Ads management
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Local SEO + Google Business Profile
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Content Engine — 6 AI videos + reels/mo
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Viral content pipeline + storyboards
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Advanced analytics and ROI dashboard
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Dedicated growth strategist
-          </li>
-          <li>
-            <span class="check dark-check">
-              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg>
-            </span>
-            Weekly check-ins + priority support
-          </li>
+      <div class="pricing-card dark reveal">
+        <div class="pricing-label">Growth Bundle</div>
+        <div class="pricing-amount">Custom</div>
+        <div class="pricing-note">For practices that want the complete picture — AI receptionist, full-stack marketing, Google Ads, SEO, and a dedicated growth strategy.</div>
+        <ul class="pricing-list">
+          <li>Everything in Professional</li>
+          <li>Google Ads management</li>
+          <li>Local SEO + Google Business Profile</li>
+          <li>Content Engine — 6 AI videos + reels/mo</li>
+          <li>Viral content pipeline + storyboards</li>
+          <li>Advanced analytics and ROI dashboard</li>
+          <li>Dedicated growth strategist</li>
+          <li>Weekly check-ins + priority support</li>
         </ul>
-        <a class="p-btn dark-fill" href="book.html">Talk to us →</a>
+        <a class="pricing-btn-dark" href="book.html">Talk to Us →</a>
       </div>
 
     </div>
@@ -865,6 +839,17 @@ footer {
       }, { threshold: 0.1 });
       reveals.forEach(function(el) { obs.observe(el); });
     }
+  }
+  var bundleJump = document.getElementById('bundleJump');
+  var growthPkg = document.getElementById('growth-pkg');
+  if (bundleJump && growthPkg) {
+    bundleJump.addEventListener('click', function(e) {
+      e.preventDefault();
+      growthPkg.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      growthPkg.classList.remove('highlight-target');
+      void growthPkg.offsetWidth;
+      growthPkg.classList.add('highlight-target');
+    });
   }
 })();
 </script>
