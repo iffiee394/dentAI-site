@@ -64,111 +64,119 @@ a { color: inherit; text-decoration: none; }
 
 /* HERO */
 .page-hero {
-  text-align: center;
-  padding: 80px 24px 60px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-.page-hero h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
-  margin-bottom: 16px;
-}
-.page-hero p {
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 540px;
-  margin: 0 auto;
-}
-
-/* STORY */
-.story {
-  padding: 0 24px 80px;
-}
-.story-inner {
-  max-width: 720px;
+  padding: 80px 24px 0;
+  max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+  gap: 64px;
+  align-items: center;
 }
-@media (max-width: 640px) { .story-inner { grid-template-columns: 1fr; gap: 32px; } }
-.story-block h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
+@media (max-width: 768px) { .page-hero { grid-template-columns: 1fr; gap: 40px; text-align: center; } }
+.hero-left {}
+.hero-kicker { display: inline-flex; align-items: center; gap: 6px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); background: var(--accent-light); border: 1px solid rgba(11,110,79,0.15); padding: 5px 12px; border-radius: 999px; margin-bottom: 24px; }
+.hero-kicker::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.5)} }
+.page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 20px; }
+.page-hero h1 em { font-style: normal; color: var(--accent); }
+.page-hero .hero-sub { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; max-width: 460px; margin-bottom: 36px; }
+@media (max-width: 768px) { .page-hero .hero-sub { margin: 0 auto 32px; } }
+.hero-stats { display: flex; gap: 32px; }
+@media (max-width: 768px) { .hero-stats { justify-content: center; } }
+.hero-stat-item {}
+.hero-stat-val { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
+.hero-stat-val span { color: var(--accent); }
+.hero-stat-label { font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px; }
+/* AI demo visual card */
+.hero-right { display: flex; justify-content: flex-end; }
+@media (max-width: 768px) { .hero-right { justify-content: center; } }
+.jenna-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 28px; width: 100%; max-width: 340px; box-shadow: 0 8px 40px rgba(0,0,0,0.06); }
+.jenna-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.jenna-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
+.jenna-info .jenna-name { font-size: 0.9rem; font-weight: 700; }
+.jenna-info .jenna-role { font-size: 0.72rem; color: var(--text-secondary); }
+.jenna-status { margin-left: auto; display: flex; align-items: center; gap: 5px; font-size: 0.68rem; font-weight: 600; color: var(--accent); }
+.jenna-status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse-dot 1.8s infinite; }
+.jenna-msgs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.jenna-msg { padding: 10px 14px; border-radius: 12px; font-size: 0.78rem; line-height: 1.5; max-width: 85%; }
+.jenna-msg.incoming { background: var(--bg); border: 1px solid var(--border); align-self: flex-start; border-radius: 4px 12px 12px 12px; }
+.jenna-msg.outgoing { background: var(--accent); color: #fff; align-self: flex-end; border-radius: 12px 4px 12px 12px; }
+.jenna-msg .msg-time { font-size: 0.62rem; opacity: 0.6; margin-top: 3px; }
+.jenna-footer { background: var(--bg); border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
+.jenna-footer span { font-size: 0.72rem; color: var(--text-secondary); }
+.jenna-footer strong { font-size: 0.78rem; color: var(--accent); font-weight: 700; }
+
+/* STORY */
+.story {
+  padding: 80px 24px;
+  background: var(--white);
 }
-.story-block p {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 12px;
+.story-inner { max-width: var(--max-w); margin: 0 auto; }
+.story-header { text-align: center; margin-bottom: 48px; }
+.story-kicker { display: inline-block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); background: var(--accent-light); border: 1px solid rgba(11,110,79,0.15); padding: 5px 14px; border-radius: 999px; margin-bottom: 18px; }
+.story-header h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; }
+.story-header h2 em { font-style: normal; color: var(--accent); }
+.story-cards { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: stretch; }
+@media (max-width: 768px) { .story-cards { grid-template-columns: 1fr; } .story-arrow { display: none; } }
+.story-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 36px 32px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+.story-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.06); }
+.story-card.problem { border-top: 3px solid #EF4444; }
+.story-card.solution { border-top: 3px solid var(--accent); background: var(--accent-light); border-color: rgba(11,110,79,0.2); }
+.story-card-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); margin-bottom: 16px; }
+.story-card.solution .story-card-label { color: var(--accent); }
+.story-stat { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; color: var(--text); }
+.story-card.problem .story-stat { color: #EF4444; }
+.story-card.solution .story-stat { color: var(--accent); }
+.story-stat-label { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 20px; }
+.story-points { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.story-points li { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text-secondary); padding: 9px 0; border-top: 1px solid var(--border); }
+.story-card.solution .story-points li { border-color: rgba(11,110,79,0.15); }
+.story-points li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.story-card.problem .story-points li::before { background: #EF4444; }
+.story-card.solution .story-points li::before { background: var(--accent); }
+.story-arrow { display: flex; align-items: center; font-size: 1.4rem; color: var(--accent); opacity: 0.4; padding-top: 40px; }
 
 /* TEAM */
 .team {
   padding: 80px 24px;
-  background: var(--white);
+  background: var(--bg);
 }
 .team-inner { max-width: var(--max-w); margin: 0 auto; }
-.team-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.team-header h2 {
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 12px;
-}
-.team-header p {
-  color: var(--text-secondary);
-  max-width: 450px;
-  margin: 0 auto;
-}
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-@media (max-width: 768px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; } }
+.team-header { text-align: center; margin-bottom: 56px; }
+.team-header h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+.team-header p { color: var(--text-secondary); max-width: 450px; margin: 0 auto; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
 .team-card {
-  text-align: center;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px 20px 28px; text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
+.team-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.06); border-color: var(--accent); }
 .team-avatar {
-  width: 96px; height: 96px;
-  border-radius: 50%;
-  margin: 0 auto 16px;
+  width: 132px; height: 132px; border-radius: 50%;
+  margin: 0 auto 18px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem; font-weight: 700;
-  color: var(--white);
+  border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--border), 0 8px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+  background: var(--surface-alt);
 }
-.team-avatar.a1 { background: var(--accent); }
-.team-avatar.a2 { background: #3B82F6; }
-.team-avatar.a3 { background: #8B5CF6; }
-.team-avatar.a4 { background: #EC4899; }
-.team-card h3 {
-  font-size: 1rem; font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: 2px;
+.team-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
-.team-card .role {
-  font-size: 0.82rem;
-  color: var(--accent);
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.team-card p {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
+.team-avatar.affan img { object-position: 55% 30%; }
+.team-avatar.haseeb img { object-position: center 15%; }
+.team-avatar.samya img { object-position: center 20%; }
+.team-avatar.fatim img { object-position: center 10%; }
+.team-card h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+.team-card .role { font-size: 0.72rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0; }
 
 /* VALUES */
 .values {
@@ -310,31 +318,85 @@ footer {
   <div class="container nav-inner">
     <a class="nav-logo" href="index.html">Dent<span>AI</span></a>
     <nav class="nav-links">
-      <a href="about.html" class="active">About</a>
-      <a href="index.html#features">Features</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Results</a>
       <a href="index.html#pricing">Pricing</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="about.html" class="active">About</a>
     </nav>
     <a class="nav-cta" href="book.html">Book a Demo ↗</a>
   </div>
 </header>
 
-<section class="page-hero">
-  <h1>We believe no patient call should go unanswered</h1>
-  <p>DentAI was built by a team that saw how much revenue dental practices were losing to missed calls, voicemail, and slow follow-up — and decided to fix it.</p>
+<section class="page-hero container">
+  <div class="hero-left reveal">
+    <div class="hero-kicker">About DentAI</div>
+    <h1>No patient call should go <em>unanswered.</em></h1>
+    <p class="hero-sub">DentAI was built after watching dental practices lose thousands in revenue to missed calls. DentAI is an AI receptionist that answers every call, books every appointment, and never takes a day off.</p>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-val">30<span>%</span></div>
+        <div class="hero-stat-label">Calls go to voicemail</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-val">&lt;1<span>s</span></div>
+        <div class="hero-stat-label">DentAI answer time</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-val">24<span>/7</span></div>
+        <div class="hero-stat-label">Always available</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right reveal">
+    <div class="jenna-card">
+      <div class="jenna-card-header">
+        <div class="jenna-avatar">D</div>
+        <div class="jenna-info">
+          <div class="jenna-name">DentAI · AI Receptionist</div>
+          <div class="jenna-role">Your Practice</div>
+        </div>
+        <div class="jenna-status"><div class="jenna-status-dot"></div>On call</div>
+      </div>
+      <div class="jenna-msgs">
+        <div class="jenna-msg incoming">Hi, I'd like to book a cleaning for next week?<div class="msg-time">Just now</div></div>
+        <div class="jenna-msg outgoing">Of course! I have Tuesday at 10am or Thursday at 2pm — which works best for you?<div class="msg-time">Just now</div></div>
+        <div class="jenna-msg incoming">Thursday at 2 is perfect.<div class="msg-time">Just now</div></div>
+      </div>
+      <div class="jenna-footer">
+        <span>Appointment confirmed</span>
+        <strong>Thu, 2:00 PM ✓</strong>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="story">
   <div class="story-inner">
-    <div class="story-block reveal">
-      <h2>The problem we saw</h2>
-      <p>Dental practices spend thousands on ads to get the phone to ring. But when it does — during lunch, after hours, on busy mornings — 30–40% of those calls go straight to voicemail.</p>
-      <p>That's not a staffing problem. It's a structural one. No front desk can answer every call, every time. But patients don't leave voicemails — they call the next practice.</p>
+    <div class="story-header reveal">
+      <div class="story-kicker">Why DentAI exists</div>
+      <h2>The phone rings. <em>Nobody answers.</em></h2>
     </div>
-    <div class="story-block reveal">
-      <h2>What we built</h2>
-      <p>DentAI is an AI receptionist purpose-built for dental practices. It answers every call in under a second, books appointments into your real calendar, and follows up with patients automatically.</p>
-      <p>We pair it with review automation and reactivation campaigns — so you're not just answering calls, you're growing the practice. One AI system, no extra staff, live in under a week.</p>
+    <div class="story-cards">
+      <div class="story-card problem reveal">
+        <div class="story-card-label">The Problem</div>
+        <div class="story-stat">30–40%</div>
+        <div class="story-stat-label">of patient calls hit voicemail</div>
+        <ul class="story-points">
+          <li>Practices spend thousands on ads — then miss the call</li>
+          <li>Patients don't leave voicemails, they call the next practice</li>
+        </ul>
+      </div>
+      <div class="story-arrow reveal">→</div>
+      <div class="story-card solution reveal">
+        <div class="story-card-label">What We Built</div>
+        <div class="story-stat">&lt;1s</div>
+        <div class="story-stat-label">answer time, every single call</div>
+        <ul class="story-points">
+          <li>DentAI books appointments into your real calendar</li>
+          <li>One AI system — live in under a week, no extra staff</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -347,28 +409,24 @@ footer {
     </div>
     <div class="team-grid">
       <div class="team-card reveal">
-        <div class="team-avatar a1">AF</div>
-        <h3>Affan Faiz</h3>
-        <div class="role">Founder & CEO</div>
-        <p>Product vision, go-to-market strategy, and client relationships. Obsessed with making AI practical for healthcare.</p>
+        <div class="team-avatar affan"><img src="assets/team/affan-zaman.png" alt="Affan Zaman"></div>
+        <h3>Affan Zaman</h3>
+        <div class="role">Founder · Tech Lead</div>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar a2">RK</div>
-        <h3>Ryan Kowalski</h3>
-        <div class="role">Head of Engineering</div>
-        <p>Builds the AI voice pipeline and integrations. Previously at a health-tech startup. Believes infrastructure should be invisible.</p>
+        <div class="team-avatar haseeb"><img src="assets/team/haseeb-khan.png" alt="Haseeb Khan"></div>
+        <h3>Haseeb Khan</h3>
+        <div class="role">Marketing Specialist</div>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar a3">SP</div>
-        <h3>Samira Patel</h3>
-        <div class="role">Head of Operations</div>
-        <p>Manages onboarding, practice configuration, and quality. Makes sure every AI receptionist sounds like it belongs at your practice.</p>
+        <div class="team-avatar samya"><img src="assets/team/samya-khan.png" alt="Samya Khan"></div>
+        <h3>Samya Khan</h3>
+        <div class="role">POC · Marketing</div>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar a4">JM</div>
-        <h3>Jessica Martinez</h3>
-        <div class="role">Customer Success</div>
-        <p>Your point of contact after launch. Monitors performance, suggests optimizations, and makes sure the numbers keep going up.</p>
+        <div class="team-avatar fatim"><img src="assets/team/fatim-ahmad.png" alt="Fatim Ahmad"></div>
+        <h3>Fatim Ahmad</h3>
+        <div class="role">Technology</div>
       </div>
     </div>
   </div>
@@ -415,7 +473,8 @@ footer {
     </div>
     <div class="footer-col">
       <h4>Product</h4>
-      <a href="index.html#features">Features</a>
+      <a href="services.html">Services</a>
+      <a href="results.html">Results</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#faq">FAQ</a>
     </div>
