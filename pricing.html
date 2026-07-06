@@ -229,7 +229,13 @@ img, svg { display: block; max-width: 100%; }
 .pricing-note { font-size: 0.8rem; margin: 6px 0 12px; line-height: 1.45; }
 .pricing-card.light .pricing-note { color: var(--text-secondary); }
 .pricing-card.dark .pricing-note { color: rgba(255,255,255,0.5); }
-.pricing-card .bundle-callout { margin: 0 0 12px; text-decoration: none; color: inherit; }
+.pricing-bundle-line {
+  display: block; font-size: 0.8rem; line-height: 1.45;
+  color: var(--accent); font-weight: 600;
+  margin: -4px 0 12px; text-decoration: none;
+}
+.pricing-bundle-line:hover { text-decoration: underline; }
+.pricing-bundle-line s { color: var(--text-secondary); font-weight: 400; }
 .pricing-list { list-style: none; padding: 0; margin: 0 0 16px; flex: 1; }
 .pricing-list li {
   font-size: 0.82rem; padding: 4px 0;
@@ -514,11 +520,11 @@ footer {
         <ul class="pricing-list">
           <li>AI voice receptionist — 24/7 call answering</li>
           <li>Appointment booking + calendar sync</li>
-          <li>After-hours and overflow handling</li>
-          <li>Basic call reporting dashboard</li>
+          <li>After-hours & overflow handling</li>
+          <li>Basic call reporting</li>
           <li>HIPAA-aware infrastructure</li>
         </ul>
-        <a class="pricing-btn-light" href="book.html">Get Started →</a>
+        <a class="pricing-btn-light" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
 
       <div class="pricing-card light featured reveal">
@@ -526,36 +532,31 @@ footer {
         <div class="pricing-label">Professional</div>
         <div class="pricing-amount">$749<span class="pricing-period"> /month</span></div>
         <div class="pricing-note">Full AI receptionist suite — plus Growth marketing included. The only plan most practices ever need.</div>
-        <a class="bundle-callout" href="#growth-pkg" id="bundleJump">
-          <div class="bundle-callout-label">Bundle included</div>
-          <div class="bundle-callout-value">Growth marketing package <span class="bundle-callout-strike">$299/mo</span> — included free&nbsp;↓</div>
-        </a>
+        <a class="pricing-bundle-line" href="#growth-pkg" id="bundleJump">Growth marketing package <s>$299/mo</s> included free ↓</a>
         <ul class="pricing-list">
           <li>Everything in Starter</li>
           <li>Review generation automation</li>
           <li>Patient follow-up sequences</li>
-          <li>No-show and reactivation campaigns</li>
+          <li>No-show & reactivation campaigns</li>
           <li>Real-time dashboard + monthly reports</li>
           <li>Priority support</li>
         </ul>
-        <a class="pricing-btn-featured" href="book.html">Get Started →</a>
+        <a class="pricing-btn-featured" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
 
       <div class="pricing-card dark reveal">
-        <div class="pricing-label">Growth Bundle</div>
+        <div class="pricing-label">Growth</div>
         <div class="pricing-amount">Custom</div>
-        <div class="pricing-note">For practices that want the complete picture — AI receptionist, full-stack marketing, Google Ads, SEO, and a dedicated growth strategy.</div>
+        <div class="pricing-note">For practices that also want ads, SEO, and social managed</div>
         <ul class="pricing-list">
           <li>Everything in Professional</li>
           <li>Google Ads management</li>
           <li>Local SEO + Google Business Profile</li>
-          <li>Content Engine — 6 AI videos + reels/mo</li>
-          <li>Viral content pipeline + storyboards</li>
-          <li>Advanced analytics and ROI dashboard</li>
-          <li>Dedicated growth strategist</li>
-          <li>Weekly check-ins + priority support</li>
+          <li>Meta Ads (Facebook + Instagram)</li>
+          <li>Social media content</li>
+          <li>Dedicated growth strategy</li>
         </ul>
-        <a class="pricing-btn-dark" href="book.html">Talk to Us →</a>
+        <a class="pricing-btn-dark" href="book.html" style="margin-top:auto;">Contact Us →</a>
       </div>
 
     </div>
