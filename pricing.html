@@ -116,6 +116,46 @@ img, svg { display: block; max-width: 100%; }
 }
 .section-head p { font-size: 0.95rem; color: var(--text-secondary); max-width: 520px; line-height: 1.6; }
 
+/* PRODUCT SECTION DIVIDERS */
+.product-section--ai {
+  background: var(--bg);
+}
+.product-section--growth {
+  background: #F3F8F5;
+  border-top: 1px solid var(--border);
+}
+.product-banner {
+  margin-bottom: 36px;
+  padding: 0 0 4px;
+  border-bottom: none;
+}
+.product-banner-kicker {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+.product-banner-title {
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.product-banner-sub {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 540px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+.product-banner--ai .product-banner-kicker { color: var(--text); }
+.product-banner--ai .product-banner-title { color: var(--text); }
+
+.product-banner--growth .product-banner-kicker { color: var(--accent-dark); }
+.product-banner--growth .product-banner-title { color: var(--text); }
+
 /* PRICING CARDS GRID */
 .cards-grid {
   display: grid;
@@ -203,8 +243,13 @@ img, svg { display: block; max-width: 100%; }
 .pricing-card {
   border-radius: 14px; padding: 24px 22px;
   display: flex; flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
-.pricing-card.light { background: var(--surface); border: 1px solid var(--border); }
+.pricing-card.light {
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
 .pricing-card.featured {
   background: var(--surface); border: 2px solid var(--accent);
   box-shadow: 0 4px 20px rgba(11, 110, 79, 0.08); position: relative;
@@ -219,14 +264,15 @@ img, svg { display: block; max-width: 100%; }
 .pricing-label {
   font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.06em; margin-bottom: 10px; line-height: 1.35;
+  min-height: 2.4em;
 }
 .pricing-card.light .pricing-label { color: var(--text-secondary); }
 .pricing-card.dark .pricing-label { color: rgba(255,255,255,0.6); }
-.pricing-amount { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+.pricing-amount { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; min-height: 2.4rem; }
 .pricing-period { font-size: 0.88rem; font-weight: 400; }
 .pricing-card.light .pricing-period { color: var(--text-secondary); }
 .pricing-card.dark .pricing-period { color: rgba(255,255,255,0.6); }
-.pricing-note { font-size: 0.8rem; margin: 6px 0 12px; line-height: 1.45; }
+.pricing-note { font-size: 0.8rem; margin: 6px 0 12px; line-height: 1.45; min-height: 3.9em; }
 .pricing-card.light .pricing-note { color: var(--text-secondary); }
 .pricing-card.dark .pricing-note { color: rgba(255,255,255,0.5); }
 .pricing-bundle-line {
@@ -247,6 +293,14 @@ img, svg { display: block; max-width: 100%; }
 .pricing-card.light .pricing-list li::before { color: var(--accent); }
 .pricing-card.dark .pricing-list li::before { color: #22C55E; }
 .pricing-card.dark .pricing-list li { color: rgba(255,255,255,0.85); }
+.pricing-list li.feature-usp {
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+.pricing-list li.feature-usp::before {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
 .pricing-btn-light, .pricing-btn-featured, .pricing-btn-dark {
   display: inline-block; width: 100%; text-align: center;
   padding: 11px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
@@ -502,12 +556,12 @@ footer {
 </section>
 
 <!-- AI RECEPTIONIST -->
-<section>
+<section class="product-section--ai" id="ai-receptionist">
   <div class="section-wrap">
-    <div class="section-head reveal">
-      <div class="section-eyebrow green">AI Receptionist</div>
-      <h2>Never miss a patient call</h2>
-      <p>Your AI front desk — answers every call, books appointments, and follows up 24/7. Set up in 48 hours, no hardware required.</p>
+    <div class="product-banner product-banner--ai reveal">
+      <div class="product-banner-kicker">AI Receptionist</div>
+      <h2 class="product-banner-title">Never miss a patient call</h2>
+      <p class="product-banner-sub">Your AI front desk answers every call, books appointments, and follows up 24/7 — live in 48 hours, no hardware required.</p>
     </div>
 
     <div class="pricing-cards">
@@ -566,23 +620,23 @@ footer {
 <div class="bridge-wrap">
   <div class="bridge-inner">
     <div class="bridge-left">
-      <div class="bridge-eyebrow">Growth Services — standalone add-on</div>
+      <div class="bridge-eyebrow">Next — Growth Packages</div>
       <h3>Already on a plan? Add acquisition packages.</h3>
       <p>Not ready for the full AI + marketing bundle? Layer Foundation, Growth, or the Patient Acquisition Engine on top of Starter. Mix and match to fit your goals and budget.</p>
     </div>
     <div class="bridge-right">
-      <a href="services.html">See all services →</a>
+      <a href="#growth-packages">See Growth Packages ↓</a>
     </div>
   </div>
 </div>
 
 <!-- GROWTH SERVICES -->
-<section>
+<section class="product-section--growth" id="growth-packages">
   <div class="section-wrap" style="padding-top: 52px;">
-    <div class="section-head reveal">
-      <div class="section-eyebrow green">Growth Services — optional add-on</div>
-      <h2>Patient acquisition packages</h2>
-      <p>Build a clear acquisition foundation — or scale into a full growth system. Layer any package on top of your AI Receptionist plan. Ad spend billed separately by Google and Meta.</p>
+    <div class="product-banner product-banner--growth reveal">
+      <div class="product-banner-kicker">Growth Packages</div>
+      <h2 class="product-banner-title">Patient acquisition packages</h2>
+      <p class="product-banner-sub">Build a clear marketing foundation — or scale into a full growth system. Layer any package on top of your AI Receptionist plan. Ad spend billed separately by Google and Meta.</p>
     </div>
 
     <div class="pricing-cards">
@@ -592,12 +646,14 @@ footer {
         <div class="pricing-amount">$199<span class="pricing-period"> /month</span></div>
         <div class="pricing-note">Best for practices building a consistent marketing foundation.</div>
         <ul class="pricing-list">
-          <li>Optimization for one advertising channel</li>
-          <li>Local search visibility foundation</li>
-          <li>Lead and booking tracking</li>
+          <li>Optimization for one ad channel — Google Ads or Meta (Facebook + Instagram)</li>
+          <li>Google Business Profile (GBP) setup and local search foundation</li>
+          <li>Lead and booking tracking setup</li>
+          <li>Facebook and Instagram content direction</li>
           <li>Monthly performance summary</li>
-          <li>Monthly content direction</li>
           <li>Core website recommendations</li>
+          <li>Baseline keyword and service visibility review</li>
+          <li>Clear monthly action checklist</li>
         </ul>
         <a class="pricing-btn-light" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>
@@ -609,11 +665,11 @@ footer {
         <div class="pricing-note">Best for practices ready to generate and measure steady patient growth. Bundled free with Professional.</div>
         <ul class="pricing-list">
           <li>Everything in Foundation</li>
-          <li>Google and Meta campaign optimization</li>
-          <li>Ongoing local search growth</li>
-          <li>Call and booking attribution</li>
+          <li>Google Ads + Meta Ads (Facebook + Instagram) campaign optimization</li>
+          <li>Ongoing Google Business Profile (GBP) and local search growth</li>
+          <li>Call and booking attribution across channels</li>
           <li>Priority service and keyword strategy</li>
-          <li>Consistent content pipeline</li>
+          <li>Consistent Facebook, Instagram, and content pipeline</li>
           <li>Monthly insights and action plan</li>
           <li>Landing-page improvement recommendations</li>
         </ul>
@@ -626,14 +682,14 @@ footer {
         <div class="pricing-note">Best for practices that want one system connecting visibility, leads, appointments, and revenue.</div>
         <ul class="pricing-list">
           <li>Everything in Growth</li>
-          <li>Multi-service advertising strategy</li>
-          <li>Advanced organic and local search growth</li>
-          <li>High-value treatment campaigns</li>
-          <li>Full acquisition and ROI reporting</li>
+          <li>Multi-service Google Ads, Facebook, and Instagram strategy</li>
+          <li>Advanced organic search + Google Business Profile (GBP) growth</li>
+          <li>High-value treatment campaigns (implants, Invisalign, and more)</li>
+          <li>Full acquisition and ROI reporting across Google and Meta</li>
           <li>Website and landing-page optimization</li>
           <li>Ongoing campaign and conversion testing</li>
-          <li>Expanded content pipeline</li>
-          <li>Priority strategy and support</li>
+          <li class="feature-usp">Expanded content pipeline — content sorted with AI</li>
+          <li class="feature-usp">Priority strategy and support</li>
         </ul>
         <a class="pricing-btn-light" href="book.html" style="margin-top:auto;">Get Started →</a>
       </div>

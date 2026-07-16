@@ -395,7 +395,7 @@ a { color: inherit; text-decoration: none; }
 .process-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
 .process-step p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
 
-/* ─── GROWTH: PACKAGES (light) ─── */
+/* ─── GROWTH: PACKAGES (matched to pricing.html) ─── */
 .packages {
   background: var(--bg); padding: 80px 24px;
   position: relative;
@@ -405,34 +405,76 @@ a { color: inherit; text-decoration: none; }
   height: 1px; background: linear-gradient(90deg, transparent, rgba(11,110,79,0.2), transparent);
 }
 .packages-inner { max-width: var(--max-w); margin: 0 auto; }
-.packages-header { text-align: center; margin-bottom: 56px; }
-.packages-header h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
-.packages-header p { color: var(--text-secondary); max-width: 540px; margin: 0 auto; }
-.pkg-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-@media (max-width: 900px) { .pkg-cards { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
-.pkg-card {
-  border-radius: 16px; padding: 36px 32px;
-  background: var(--white); border: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  display: flex; flex-direction: column; position: relative;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+.packages-header { text-align: center; margin-bottom: 40px; }
+.packages-header .section-eyebrow {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent);
+  margin-bottom: 10px;
 }
-.pkg-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 32px rgba(11,110,79,0.1); }
-.pkg-card.popular { border: 2px solid var(--accent); box-shadow: 0 4px 20px rgba(11,110,79,0.12); }
-.pkg-card.premium { border: 2px solid var(--accent-dark); }
-.pkg-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 14px; border-radius: 999px; white-space: nowrap; }
-.pkg-badge.fire { background: var(--accent-dark); }
-.pkg-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 12px; line-height: 1.35; }
-.pkg-price { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; color: var(--text); }
-.pkg-period { font-size: 0.9rem; font-weight: 400; color: var(--text-secondary); }
-.pkg-tagline { font-size: 0.85rem; margin: 8px 0 24px; line-height: 1.5; color: var(--text-secondary); }
-.pkg-features { list-style: none; padding: 0; margin: 0 0 28px; flex: 1; }
-.pkg-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; padding: 6px 0; line-height: 1.4; color: var(--text); }
-.pkg-features li::before { content: '✓'; font-weight: 700; font-size: 0.78rem; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
-.pkg-features li.highlight { font-weight: 600; color: var(--accent); }
-.pkg-features li.highlight::before { content: ''; }
-.pkg-btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 8px; font-size: 0.92rem; font-weight: 600; transition: all 0.2s; margin-top: auto; background: var(--accent); color: #fff; border: none; }
-.pkg-btn:hover { opacity: 0.9; box-shadow: 0 4px 16px rgba(11,110,79,0.3); }
+.packages-header h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 12px; }
+.packages-header p { color: var(--text-secondary); max-width: 560px; margin: 0 auto; font-size: 0.95rem; }
+
+.pricing-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .pricing-cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+}
+.pricing-card {
+  border-radius: 14px; padding: 24px 22px;
+  display: flex; flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+.pricing-card.light {
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
+.pricing-card.featured {
+  background: var(--surface); border: 2px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(11, 110, 79, 0.08); position: relative;
+}
+.pricing-badge {
+  position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: var(--white);
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 3px 10px; border-radius: 999px; white-space: nowrap;
+}
+.pricing-label {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 10px; line-height: 1.35;
+  min-height: 2.4em; color: var(--text-secondary);
+}
+.pricing-amount { font-size: 2.1rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; min-height: 2.4rem; }
+.pricing-period { font-size: 0.88rem; font-weight: 400; color: var(--text-secondary); }
+.pricing-note { font-size: 0.8rem; margin: 6px 0 12px; line-height: 1.45; min-height: 3.9em; color: var(--text-secondary); }
+.pricing-list { list-style: none; padding: 0; margin: 0 0 16px; flex: 1; }
+.pricing-list li {
+  font-size: 0.82rem; padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 7px; line-height: 1.4;
+}
+.pricing-list li::before {
+  content: '✓'; font-weight: 700; font-size: 0.75rem;
+  flex-shrink: 0; margin-top: 1px; color: var(--accent);
+}
+.pricing-list li.feature-usp {
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+.pricing-list li.feature-usp::before {
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+.pricing-btn-light, .pricing-btn-featured {
+  display: inline-block; width: 100%; text-align: center;
+  padding: 11px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  transition: opacity 0.15s; margin-top: auto;
+}
+.pricing-btn-light { background: var(--black); color: var(--white); }
+.pricing-btn-light:hover { opacity: 0.85; }
+.pricing-btn-featured { background: var(--accent); color: var(--white); }
+.pricing-btn-featured:hover { opacity: 0.9; }
 .pkg-note { text-align: center; margin-top: 28px; font-size: 0.82rem; color: var(--text-secondary); }
 
 /* ─── CTA ─── */
@@ -731,34 +773,70 @@ footer { border-top: 1px solid var(--border); padding: 48px 24px; }
     </div>
   </section>
 
-  <!-- Dark pricing section -->
+  <!-- Pricing packages — layout matched to pricing.html -->
   <section class="packages">
     <div class="packages-inner">
-      <div class="packages-header reveal"><h2>Patient acquisition packages</h2><p>From a clear marketing foundation to a full acquisition engine. Choose the tier that fits your growth goals.</p></div>
-      <div class="pkg-cards">
-        <div class="pkg-card reveal reveal-d1">
-          <div class="pkg-label">Foundation</div>
-          <div class="pkg-price">$199<span class="pkg-period"> /mo</span></div>
-          <div class="pkg-tagline">Best for practices building a consistent marketing foundation.</div>
-          <ul class="pkg-features"><li>Optimization for one advertising channel</li><li>Local search visibility foundation</li><li>Lead and booking tracking</li><li>Monthly performance summary</li><li>Monthly content direction</li><li>Core website recommendations</li></ul>
-          <a class="pkg-btn" href="book.html">Get Started →</a>
+      <div class="packages-header reveal">
+        <div class="section-eyebrow">Growth Services — optional add-on</div>
+        <h2>Patient acquisition packages</h2>
+        <p>Build a clear acquisition foundation — or scale into a full growth system. Layer any package on top of your AI Receptionist plan. Ad spend billed separately by Google and Meta.</p>
+      </div>
+
+      <div class="pricing-cards">
+
+        <div class="pricing-card light reveal reveal-d1">
+          <div class="pricing-label">Foundation</div>
+          <div class="pricing-amount">$199<span class="pricing-period"> /month</span></div>
+          <div class="pricing-note">Best for practices building a consistent marketing foundation.</div>
+          <ul class="pricing-list">
+            <li>Optimization for one ad channel — Google Ads or Meta (Facebook + Instagram)</li>
+            <li>Google Business Profile (GBP) setup and local search foundation</li>
+            <li>Lead and booking tracking setup</li>
+            <li>Facebook and Instagram content direction</li>
+            <li>Monthly performance summary</li>
+            <li>Core website recommendations</li>
+            <li>Baseline keyword and service visibility review</li>
+            <li>Clear monthly action checklist</li>
+          </ul>
+          <a class="pricing-btn-light" href="book.html">Get Started →</a>
         </div>
-        <div class="pkg-card popular reveal reveal-d2">
-          <div class="pkg-badge">Most Popular</div>
-          <div class="pkg-label">Growth</div>
-          <div class="pkg-price">$299<span class="pkg-period"> /mo</span></div>
-          <div class="pkg-tagline">Best for practices ready to generate and measure steady patient growth.</div>
-          <ul class="pkg-features"><li class="highlight">Everything in Foundation, plus:</li><li>Google and Meta campaign optimization</li><li>Call and booking attribution</li><li>Consistent content pipeline</li><li>Monthly insights and action plan</li><li>Landing-page improvement recommendations</li></ul>
-          <a class="pkg-btn" href="book.html">Get Started →</a>
+
+        <div class="pricing-card light featured reveal reveal-d2">
+          <div class="pricing-badge">Most popular</div>
+          <div class="pricing-label">Growth</div>
+          <div class="pricing-amount">$299<span class="pricing-period"> /month</span></div>
+          <div class="pricing-note">Best for practices ready to generate and measure steady patient growth. Bundled free with Professional.</div>
+          <ul class="pricing-list">
+            <li>Everything in Foundation</li>
+            <li>Google Ads + Meta Ads (Facebook + Instagram) campaign optimization</li>
+            <li>Ongoing Google Business Profile (GBP) and local search growth</li>
+            <li>Call and booking attribution across channels</li>
+            <li>Priority service and keyword strategy</li>
+            <li>Consistent Facebook, Instagram, and content pipeline</li>
+            <li>Monthly insights and action plan</li>
+            <li>Landing-page improvement recommendations</li>
+          </ul>
+          <a class="pricing-btn-featured" href="book.html">Get Started →</a>
         </div>
-        <div class="pkg-card premium reveal reveal-d3">
-          <div class="pkg-badge fire">Full System</div>
-          <div class="pkg-label">Patient Acquisition Engine</div>
-          <div class="pkg-price">$499<span class="pkg-period"> /mo</span></div>
-          <div class="pkg-tagline">One system connecting visibility, leads, appointments, and revenue.</div>
-          <ul class="pkg-features"><li class="highlight">Everything in Growth, plus:</li><li>Multi-service advertising strategy</li><li>High-value treatment campaigns</li><li>Full acquisition and ROI reporting</li><li>Website and conversion testing</li><li>Priority strategy and support</li></ul>
-          <a class="pkg-btn" href="book.html">Get Started →</a>
+
+        <div class="pricing-card light reveal reveal-d3">
+          <div class="pricing-label">Patient Acquisition Engine</div>
+          <div class="pricing-amount">$499<span class="pricing-period"> /month</span></div>
+          <div class="pricing-note">Best for practices that want one system connecting visibility, leads, appointments, and revenue.</div>
+          <ul class="pricing-list">
+            <li>Everything in Growth</li>
+            <li>Multi-service Google Ads, Facebook, and Instagram strategy</li>
+            <li>Advanced organic search + Google Business Profile (GBP) growth</li>
+            <li>High-value treatment campaigns (implants, Invisalign, and more)</li>
+            <li>Full acquisition and ROI reporting across Google and Meta</li>
+            <li>Website and landing-page optimization</li>
+            <li>Ongoing campaign and conversion testing</li>
+            <li class="feature-usp">Expanded content pipeline — content sorted with AI</li>
+            <li class="feature-usp">Priority strategy and support</li>
+          </ul>
+          <a class="pricing-btn-light" href="book.html">Get Started →</a>
         </div>
+
       </div>
       <p class="pkg-note">All packages month-to-month. No contracts. Ad spend billed directly by platforms.</p>
     </div>
